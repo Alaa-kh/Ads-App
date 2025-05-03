@@ -10,6 +10,7 @@ import 'package:ads_project/app/utils/app_images.dart';
 import 'package:ads_project/app/widgets/main_app_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 class MustangScreen extends StatelessWidget {
   const MustangScreen({super.key});
@@ -19,8 +20,12 @@ class MustangScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       appBar: mainAppBar(
+        onTap: () => Get.back(),
         radius: Radius.circular(0),
-        SvgPicture.asset(AppIcons.arrowBackIcon),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 6),
+          child: SvgPicture.asset(AppIcons.arrowBackIcon),
+        ),
         backgroundColor: AppColors.lightWhiteColor,
       ),
       body: SingleChildScrollView(
@@ -28,8 +33,7 @@ class MustangScreen extends StatelessWidget {
           children: [
             Container(
               alignment: Alignment.center,
-
-              height: 328,
+              height: 228,
               width: double.infinity,
               decoration: BoxDecoration(
                 color: AppColors.lightWhiteColor,
@@ -38,7 +42,7 @@ class MustangScreen extends StatelessWidget {
                   bottomRight: Radius.circular(40),
                 ),
               ),
-              child: Image.asset(AppImages.persil2Image),
+              child: Image.asset(AppImages.persil2Image,alignment:Alignment.center),
             ),
             const CustomVerticalSizedBox(height: 15),
             Padding(
@@ -52,7 +56,7 @@ class MustangScreen extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-
+                  const CustomVerticalSizedBox(height: 11),
                   MustangTextInfoWidget(),
                   const CustomVerticalSizedBox(height: 25),
 
@@ -73,9 +77,9 @@ class MustangScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const CustomVerticalSizedBox(height: 22),
+                  const CustomVerticalSizedBox(height: 27),
                   MustangSliderWidget(),
-                  const CustomVerticalSizedBox(height: 22),
+                  const CustomVerticalSizedBox(height: 20),
                   CustomButtonWidget(text: 'Order Now', fontSize: 28),
                   const CustomVerticalSizedBox(height: 25),
                 ],

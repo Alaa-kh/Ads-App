@@ -1,31 +1,59 @@
 import 'package:ads_project/app/themes/app_colors.dart';
 import 'package:ads_project/app/themes/app_text_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 AppBar mainAppBar(
   Widget leadingIcon, {
   Radius? radius,
   String? title,
   List<Widget>? actions,
+  Color? titleColor,
+  Function()? onTap,
   Color? backgroundColor,
-}) => AppBar(
+  String? backgroundImagePath,
+}) {
+  final borderRadius = radius ?? Radius.circular(30);
 
-  elevation: 0,
-  backgroundColor: backgroundColor ?? AppColors.primaryColor,
-  toolbarHeight: 98,
-  shape: RoundedRectangleBorder(
-    borderRadius: BorderRadius.vertical(bottom: radius ?? Radius.circular(30)),
-  ),
-
-  leading: IconButton(
-    onPressed: () {}, icon: leadingIcon),
-  title: Text(
-    title ?? '',
-    style: AppTextTheme.textTheme.headlineLarge!.copyWith(
-      fontSize: 18,
-      color: AppColors.whiteColor,
+  return AppBar(
+    elevation: 0,
+    scrolledUnderElevation: 0,
+    backgroundColor: backgroundColor ?? AppColors.primaryColor,
+    toolbarHeight: 90,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(bottom: borderRadius),
     ),
-  ),
-  centerTitle: true,
-  actions: actions ?? [],
-);
+    flexibleSpace: ClipRRect(
+      borderRadius: BorderRadius.vertical(bottom: borderRadius),
+      child:
+          backgroundImagePath != null
+              ? Align(
+                alignment: Alignment.topLeft,
+                child: SvgPicture.asset(
+                  backgroundImagePath,
+                  fit: BoxFit.fitWidth,
+                  width: 350,
+                ),
+              )
+              : null,
+    ),
+    leading: Padding(
+      padding: const EdgeInsets.only(left: 15.0),
+      child: InkWell(
+        overlayColor: WidgetStateProperty.all(Colors.transparent),
+        onTap: onTap,
+        child: leadingIcon,
+      ),
+    ),
+    title: Text(
+      title ?? '',
+      style: AppTextTheme.textTheme.headlineLarge!.copyWith(
+        fontSize: 18,
+        color: titleColor ?? AppColors.whiteColor,
+      ),
+    ),
+    centerTitle: true,
+    actionsPadding: const EdgeInsets.only(right: 5),
+    actions: actions ?? [],
+  );
+}

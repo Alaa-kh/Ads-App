@@ -33,7 +33,6 @@ class MustangSliderWidget extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 8),
         FlutterSlider(
           values: [200, 1000],
           rangeSlider: true,

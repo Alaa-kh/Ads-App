@@ -33,7 +33,6 @@ class RootScreen extends GetView<RootController> {
                         bottom: 1,
                         child: SizedBox(
                           width: MediaQuery.of(context).size.width,
-
                           child: SvgPicture.asset(
                             AppIcons.rectangleIcon,
                             width: MediaQuery.of(context).size.width,
@@ -42,7 +41,7 @@ class RootScreen extends GetView<RootController> {
                           ),
                         ),
                       ),
-                Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
@@ -50,22 +49,26 @@ class RootScreen extends GetView<RootController> {
                             onTap: () => controller.seletedPage(0),
                             child: SvgPicture.asset(
                               AppIcons.homeIcon,
-                              colorFilter:  controller.currentIndex == 0? ColorFilter.mode(
-                                      AppColors.yellowColor, BlendMode.srcIn):null
-                                 
+                              colorFilter:
+                                  controller.currentIndex == 0
+                                      ? ColorFilter.mode(
+                                        AppColors.yellowColor,
+                                        BlendMode.srcIn,
+                                      )
+                                      : null,
                             ),
                           ),
                           InkWell(
                             onTap: () => controller.seletedPage(1),
                             child: SvgPicture.asset(
                               AppIcons.scanIcon,
-                               colorFilter:
+                              colorFilter:
                                   controller.currentIndex == 1
                                       ? ColorFilter.mode(
                                         AppColors.yellowColor,
                                         BlendMode.srcIn,
                                       )
-                                      : null
+                                      : null,
                             ),
                           ),
                           InkWell(
@@ -78,12 +81,11 @@ class RootScreen extends GetView<RootController> {
                                         AppColors.yellowColor,
                                         BlendMode.srcIn,
                                       )
-                                      : null
+                                      : null,
                             ),
                           ),
                         ],
                       ),
-
                     ],
                   ),
                 ),

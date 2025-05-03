@@ -3,6 +3,8 @@ import 'package:ads_project/app/modules/account/widgets/account_list_info_widget
 import 'package:ads_project/app/modules/account/widgets/account_photo_widget.dart';
 import 'package:ads_project/app/modules/account/widgets/account_profit_and_order_widget.dart';
 import 'package:ads_project/app/modules/account/widgets/account_see_all_widget.dart';
+import 'package:ads_project/app/modules/notifications/views/notifications_screen.dart';
+import 'package:ads_project/app/modules/root/controllers/root_controller.dart';
 import 'package:ads_project/app/shared/custom_vertical_sizedbox.dart';
 import 'package:ads_project/app/themes/app_colors.dart';
 import 'package:ads_project/app/themes/app_text_theme.dart';
@@ -22,11 +24,24 @@ class AccountScreen extends StatelessWidget {
       extendBodyBehindAppBar: false,
       backgroundColor: AppColors.whiteColor,
       appBar: mainAppBar(
+        onTap: () {
+          return Get.find<RootController>().accountNavigatorKey.currentState!
+              .push(MaterialPageRoute(builder: (_) => NotificationsScreen()));
+        },
         radius: Radius.circular(0),
-        SvgPicture.asset(AppIcons.notificationBlackIcon),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: SvgPicture.asset(AppIcons.notificationBlackIcon),
+        ),
         actions: [
           IconButton(
-            onPressed: () =>Get.to(()=> EditAccountScreen()),
+            onPressed:
+                () => Get.find<RootController>()
+                    .accountNavigatorKey
+                    .currentState!
+                    .push(
+                      MaterialPageRoute(builder: (_) => EditAccountScreen()),
+                    ),
             icon: Text(
               'Edit',
               style: AppTextTheme.textTheme.titleLarge!.copyWith(
@@ -45,7 +60,7 @@ class AccountScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CustomVerticalSizedBox(height: 25),
+              CustomVerticalSizedBox(height: 10),
               AccountPhotoWidget(),
               const CustomVerticalSizedBox(height: 10),
               Text(
@@ -54,7 +69,7 @@ class AccountScreen extends StatelessWidget {
                   color: AppColors.navyBlueColor,
                 ),
               ),
-              CustomVerticalSizedBox(height: 40),
+              CustomVerticalSizedBox(height: 20),
               AccountProfitAndOrderWidget(),
               CustomVerticalSizedBox(height: 20),
               AccountSeeAllWidget(),

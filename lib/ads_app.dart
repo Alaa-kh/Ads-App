@@ -10,7 +10,7 @@ class AdsApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.root,
+      initialRoute: AppRoutes.login,
       getPages: AppPages.pages,
     
     );

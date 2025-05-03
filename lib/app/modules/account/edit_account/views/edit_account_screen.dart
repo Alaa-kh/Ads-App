@@ -14,10 +14,10 @@ class EditAccountScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBody: false,
       extendBodyBehindAppBar: false,
       backgroundColor: AppColors.whiteColor,
       appBar: mainAppBar(
+        onTap: () => Navigator.of(context).pop(),
         radius: Radius.circular(0),
         Container(
           alignment: Alignment.center,
@@ -36,37 +36,39 @@ class EditAccountScreen extends StatelessWidget {
           ),
           child: Icon(Icons.arrow_back_ios, size: 13),
         ),
-
         backgroundColor: AppColors.whiteColor,
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CustomVerticalSizedBox(height: 25),
-            EditAccountPhotoWidget(),
-            const CustomVerticalSizedBox(height: 50),
-            CustomTextField(
-              prefixIcon: SvgPicture.asset(AppIcons.nameIcon),
-              hintText: 'Hussam Zina',
-            ),
-            const CustomVerticalSizedBox(height: 18),
-
-            CustomTextField(
-              prefixIcon: SvgPicture.asset(AppIcons.phoneIcon),
-              hintText: '0947650539',
-            ),
-            const CustomVerticalSizedBox(height: 18),
-            CustomTextField(
-              prefixIcon: SvgPicture.asset(AppIcons.passwordIcon),
-              hintText: 'husam123',
-            ),
-            CustomVerticalSizedBox(height: 30),
-            CustomButtonWidget(text: 'Save Changes'),
-          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 24),
+          child: Column(
+            children: [
+              CustomVerticalSizedBox(height: 25),
+              EditAccountPhotoWidget(),
+              const CustomVerticalSizedBox(height: 50),
+              CustomTextField(
+                prefixIcon: SvgPicture.asset(AppIcons.nameIcon),
+                hintText: 'Hussam Zina',
+              ),
+              const CustomVerticalSizedBox(height: 18),
+              CustomTextField(
+                prefixIcon: SvgPicture.asset(AppIcons.phoneIcon),
+                hintText: '0947650539',
+              ),
+              const CustomVerticalSizedBox(height: 18),
+              CustomTextField(
+                prefixIcon: SvgPicture.asset(AppIcons.passwordIcon),
+                hintText: 'husam123',
+              ),
+              CustomVerticalSizedBox(height: 30),
+              CustomButtonWidget(text: 'Save Changes'),
+              const CustomVerticalSizedBox(height: 25),
+            ],
+          ),
         ),
       ),
+    
+      
     );
   }
 }

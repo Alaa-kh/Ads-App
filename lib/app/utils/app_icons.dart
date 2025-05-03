@@ -1,5 +1,7 @@
 class AppIcons {
-  // Login
+  // Login 
+  static const String ellipse1Icon = 'assets/svg/Ellipse 1.svg';
+  static const String ellipse2Icon = 'assets/svg/Ellipse 2.svg';
   static const String arrowIcon = 'assets/svg/Icon.svg';
   static const String nameIcon = 'assets/svg/name.svg';
   static const String phoneIcon = 'assets/svg/phone.svg';
@@ -17,7 +19,6 @@ class AppIcons {
   static const String scanIcon = 'assets/svg/scan.svg';
   static const String accountIcon = 'assets/svg/account.svg';
   static const String rectangleIcon = 'assets/svg/Rectangle.svg';
-  static const String checkIcon = 'assets/svg/check.svg';
 
   //  Mustang
   static const String personIcon = 'assets/svg/person.svg';
@@ -27,4 +28,10 @@ class AppIcons {
   //  Account
   static const String notificationBlackIcon = 'assets/svg/NotificationBlack.svg';
   static const String editIcon = 'assets/svg/edit.svg';
+
+  // Notifications
+  static const String checkIcon = 'assets/svg/check.svg';
+  static const String falseIcon = 'assets/svg/false.svg';
+  static const String notificationEllipseIcon = 'assets/svg/notificationEllipse.svg';
+
 }

@@ -1,4 +1,4 @@
-import 'package:ads_project/app/modules/home/views/home_screen.dart';
+import 'package:ads_project/app/modules/root/views/root_screen.dart';
 import 'package:ads_project/app/shared/custom_button_widget.dart';
 import 'package:ads_project/app/shared/custom_dialog.dart';
 import 'package:ads_project/app/shared/custom_horizontal_sizedbox.dart';
@@ -79,10 +79,10 @@ class LoginTabWidget extends StatelessWidget {
             onTap: () {
               //   showTextDialog('Check your SM',  'We have send password recovery\n instruction to your email',
               //  AppIcons.messageIcon, false, );
-              Get.to(() => HomeScreen());
+              Get.to(() => RootScreen());
             },
           ),
-          const CustomVerticalSizedBox(height: 30),
+          const CustomVerticalSizedBox(height: 35),
 
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -100,7 +100,7 @@ class LoginTabWidget extends StatelessWidget {
               SvgPicture.asset(AppIcons.lineIcon),
             ],
           ),
-          CustomVerticalSizedBox(height: 30),
+          CustomVerticalSizedBox(height: 35),
           InkWell(
             onTap: () {},
             child: Container(
@@ -125,7 +125,8 @@ class LoginTabWidget extends StatelessWidget {
               ),
             ),
           ),
-          CustomVerticalSizedBox(height: 25),
+          const CustomVerticalSizedBox(height: 25),
+
         ],
       ),
     );
