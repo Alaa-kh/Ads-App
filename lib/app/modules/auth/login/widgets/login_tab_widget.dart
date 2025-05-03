@@ -62,12 +62,9 @@ class LoginTabWidget extends StatelessWidget {
           ),
 
           const CustomVerticalSizedBox(height: 18),
-
           CustomButtonWidget(
             text: 'Login',
             onTap: () {
-              //   showTextDialog('Check your SM',  'We have send password recovery\n instruction to your email',
-              //  AppIcons.messageIcon, false, );
               Get.to(() => RootScreen());
             },
           ),
@@ -102,7 +99,7 @@ class LoginTabWidget extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset(AppImages.googleImage,width: 20,height: 20),
+                  Image.asset(AppImages.googleImage, width: 20, height: 20),
                   const SizedBox(width: 10),
                   Text(
                     'Google',
@@ -115,7 +112,6 @@ class LoginTabWidget extends StatelessWidget {
             ),
           ),
           const CustomVerticalSizedBox(height: 25),
-
         ],
       ),
     );
