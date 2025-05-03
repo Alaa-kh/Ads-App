@@ -1,5 +1,5 @@
-import 'package:ads_project/app/themes/app_colors.dart';
-import 'package:flutter/material.dart';
+
+import 'package:ads_project/app/core/constants/app_packages.dart';
 
 class AccountPhotoWidget extends StatelessWidget {
   const AccountPhotoWidget({super.key});

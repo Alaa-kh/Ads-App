@@ -1,18 +1,4 @@
-import 'package:ads_project/app/modules/account/edit_account/views/edit_account_screen.dart';
-import 'package:ads_project/app/modules/account/widgets/account_list_info_widget.dart';
-import 'package:ads_project/app/modules/account/widgets/account_photo_widget.dart';
-import 'package:ads_project/app/modules/account/widgets/account_profit_and_order_widget.dart';
-import 'package:ads_project/app/modules/account/widgets/account_see_all_widget.dart';
-import 'package:ads_project/app/modules/notifications/views/notifications_screen.dart';
-import 'package:ads_project/app/modules/root/controllers/root_controller.dart';
-import 'package:ads_project/app/shared/custom_vertical_sizedbox.dart';
-import 'package:ads_project/app/themes/app_colors.dart';
-import 'package:ads_project/app/themes/app_text_theme.dart';
-import 'package:ads_project/app/utils/app_icons.dart';
-import 'package:ads_project/app/widgets/main_app_bar_widget.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
+import 'package:ads_project/app/core/constants/app_packages.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({super.key});
@@ -71,6 +57,8 @@ class AccountScreen extends StatelessWidget {
               ),
               CustomVerticalSizedBox(height: 20),
               AccountProfitAndOrderWidget(),
+              CustomVerticalSizedBox(height: 27),
+              AccountCurrentCampaignWidget(),
               CustomVerticalSizedBox(height: 20),
               AccountSeeAllWidget(),
               CustomVerticalSizedBox(height: 13),

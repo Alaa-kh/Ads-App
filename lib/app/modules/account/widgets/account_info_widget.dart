@@ -1,8 +1,5 @@
-import 'package:ads_project/app/shared/custom_horizontal_sizedbox.dart';
-import 'package:ads_project/app/themes/app_colors.dart';
-import 'package:ads_project/app/themes/app_text_theme.dart';
-import 'package:ads_project/app/utils/app_images.dart';
-import 'package:flutter/material.dart';
+
+import 'package:ads_project/app/core/constants/app_packages.dart';
 
 class AccountInfoWidget extends StatelessWidget {
   const AccountInfoWidget({super.key});

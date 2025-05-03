@@ -1,11 +1,7 @@
-import 'package:ads_project/app/shared/custom_vertical_sizedbox.dart';
-import 'package:ads_project/app/themes/app_colors.dart';
-import 'package:ads_project/app/themes/app_text_theme.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:ads_project/app/core/constants/app_packages.dart';
 
-class MustangDetailsDriverWidget extends StatelessWidget {
-  const MustangDetailsDriverWidget({
+class DetailsDriverWidget extends StatelessWidget {
+  const DetailsDriverWidget({
     super.key,
     required this.icon,
     required this.number,
@@ -22,10 +18,17 @@ class MustangDetailsDriverWidget extends StatelessWidget {
           width: 60,
           height: 64,
           decoration: BoxDecoration(
-            border: Border.all(color: AppColors.lightWhiteColor),
+            color: AppColors.whiteColor,
             borderRadius: BorderRadius.circular(10),
+             boxShadow: [
+              BoxShadow(
+                color: AppColors.lightDarkColor.withValues(alpha: .7),
+                blurRadius: 10,
+                spreadRadius: 5,
+              ),
+            ],
           ),
-          child: SvgPicture.asset(icon),
+          child: Image.asset(icon,width: 30),
         ),
         const CustomVerticalSizedBox(height: 7),
         Text(

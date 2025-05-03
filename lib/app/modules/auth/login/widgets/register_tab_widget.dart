@@ -1,10 +1,4 @@
-
-import 'package:ads_project/app/shared/custom_button_widget.dart';
-import 'package:ads_project/app/shared/custom_textfield.dart';
-import 'package:ads_project/app/shared/custom_vertical_sizedbox.dart';
-import 'package:ads_project/app/utils/app_icons.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:ads_project/app/core/constants/app_packages.dart';
 
 class RegisterTabWidget extends StatelessWidget {
   const RegisterTabWidget({super.key});

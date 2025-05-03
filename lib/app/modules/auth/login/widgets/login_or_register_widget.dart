@@ -1,9 +1,4 @@
-import 'package:ads_project/app/modules/auth/login/controllers/login_controller.dart';
-import 'package:ads_project/app/shared/custom_vertical_sizedbox.dart';
-import 'package:ads_project/app/themes/app_colors.dart';
-import 'package:ads_project/app/themes/app_text_theme.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:ads_project/app/core/constants/app_packages.dart';
 
 class LoginOrRegisterWidget extends StatelessWidget {
   const LoginOrRegisterWidget({super.key});

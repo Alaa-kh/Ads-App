@@ -1,15 +1,4 @@
-import 'package:ads_project/app/modules/root/views/root_screen.dart';
-import 'package:ads_project/app/shared/custom_button_widget.dart';
-import 'package:ads_project/app/shared/custom_dialog.dart';
-import 'package:ads_project/app/shared/custom_horizontal_sizedbox.dart';
-import 'package:ads_project/app/shared/custom_textfield.dart';
-import 'package:ads_project/app/shared/custom_vertical_sizedbox.dart';
-import 'package:ads_project/app/themes/app_colors.dart';
-import 'package:ads_project/app/themes/app_text_theme.dart';
-import 'package:ads_project/app/utils/app_icons.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
+import 'package:ads_project/app/core/constants/app_packages.dart';
 
 class LoginTabWidget extends StatelessWidget {
   const LoginTabWidget({super.key});
@@ -113,7 +102,7 @@ class LoginTabWidget extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SvgPicture.asset(AppIcons.googleIcon),
+                  Image.asset(AppImages.googleImage,width: 20,height: 20),
                   const SizedBox(width: 10),
                   Text(
                     'Google',

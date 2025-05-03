@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:ads_project/app/core/constants/app_packages.dart';
 
 void showLoadingDialog() {
   Get.dialog(

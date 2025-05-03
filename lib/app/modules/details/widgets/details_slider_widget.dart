@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_xlider/flutter_xlider.dart';
+import 'package:ads_project/app/core/constants/app_packages.dart';
 
-class MustangSliderWidget extends StatelessWidget {
-  const MustangSliderWidget({super.key});
+class DetailsSliderWidget extends StatelessWidget {
+  const DetailsSliderWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

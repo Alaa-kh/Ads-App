@@ -1,13 +1,4 @@
-import 'package:ads_project/app/modules/home/widgets/home_main_list_widget.dart';
-import 'package:ads_project/app/modules/notifications/views/notifications_screen.dart';
-import 'package:ads_project/app/modules/root/controllers/root_controller.dart';
-import 'package:ads_project/app/shared/custom_vertical_sizedbox.dart';
-import 'package:ads_project/app/themes/app_colors.dart';
-import 'package:ads_project/app/utils/app_icons.dart';
-import 'package:ads_project/app/widgets/main_app_bar_widget.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
+import 'package:ads_project/app/core/constants/app_packages.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

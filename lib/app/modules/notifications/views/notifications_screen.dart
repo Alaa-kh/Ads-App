@@ -1,7 +1,4 @@
-import 'package:ads_project/app/modules/notifications/widgets/notifications_main_list_widget.dart';
-import 'package:ads_project/app/themes/app_colors.dart';
-import 'package:ads_project/app/widgets/main_app_bar_widget.dart';
-import 'package:flutter/material.dart';
+import 'package:ads_project/app/core/constants/app_packages.dart';
 
 class NotificationsScreen extends StatelessWidget {
   const NotificationsScreen({super.key});

@@ -1,7 +1,4 @@
-import 'package:ads_project/app/themes/app_colors.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
+import 'package:ads_project/app/core/constants/app_packages.dart';
 
 void showTextDialog(String title, String subTitle,String icon,  bool isError, [Function()? onTap]) {
   Get.dialog(
@@ -16,7 +13,7 @@ void showTextDialog(String title, String subTitle,String icon,  bool isError, [F
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            SvgPicture.asset( icon),
+            Image.asset( icon,width: 44,height: 44),
             Text(
               title,
               textAlign: TextAlign.center,

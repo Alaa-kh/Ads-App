@@ -1,5 +1,4 @@
-import 'package:ads_project/app/themes/app_colors.dart';
-import 'package:flutter/material.dart';
+import 'package:ads_project/app/core/constants/app_packages.dart';
 
 class CustomButtonWidget extends StatelessWidget {
   const CustomButtonWidget({super.key, required this.text, this.onTap,  this.fontSize});

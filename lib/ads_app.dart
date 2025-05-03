@@ -1,7 +1,5 @@
-import 'package:ads_project/app/routes/app_pages.dart';
-import 'package:ads_project/app/routes/app_routes.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
+import 'package:ads_project/app/core/constants/app_packages.dart';
 
 class AdsApp extends StatelessWidget {
   const AdsApp({super.key});
@@ -10,9 +8,9 @@ class AdsApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.login,
+      initialRoute: AppRoutes.root,
       getPages: AppPages.pages,
-    
+      theme: ThemeData(fontFamily: 'Inter'),
     );
   }
 }

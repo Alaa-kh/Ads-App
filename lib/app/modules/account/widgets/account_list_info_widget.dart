@@ -1,6 +1,5 @@
-import 'package:ads_project/app/modules/account/widgets/account_info_widget.dart';
-import 'package:ads_project/app/shared/custom_vertical_sizedbox.dart';
-import 'package:flutter/material.dart';
+
+import 'package:ads_project/app/core/constants/app_packages.dart';
 
 class AccountListInfoWidget extends StatelessWidget {
   const AccountListInfoWidget({super.key});

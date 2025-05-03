@@ -1,7 +1,5 @@
-import 'package:ads_project/app/themes/app_colors.dart';
-import 'package:ads_project/app/utils/app_icons.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+
+import 'package:ads_project/app/core/constants/app_packages.dart';
 
 class EditAccountPhotoWidget extends StatelessWidget {
   const EditAccountPhotoWidget({super.key});

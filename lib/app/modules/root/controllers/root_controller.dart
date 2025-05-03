@@ -1,19 +1,5 @@
-import 'package:ads_project/app/modules/account/views/account_screen.dart';
-import 'package:ads_project/app/modules/home/views/home_screen.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:ads_project/app/core/constants/app_packages.dart';
 
-// class RootController extends GetxController {
-//   int currentIndex = 0;
-//   void seletedPage(int index) {
-//     currentIndex = index;
-//     update();
-//   }
-
-//   final screens = const [
-//   HomeScreen(), HomeScreen(), AccountScreen(),
-//   ];
-// }
 class RootController extends GetxController {
   int currentIndex = 0;
   void seletedPage(int index) {
@@ -39,7 +25,7 @@ class RootController extends GetxController {
       onGenerateRoute:
           (settings) => MaterialPageRoute(
             builder: (_) => const HomeScreen(),
-          ), // ScanScreen هنا بدل HomeScreen لاحقًا
+          )
     ),
     Navigator(
       key: accountNavigatorKey,

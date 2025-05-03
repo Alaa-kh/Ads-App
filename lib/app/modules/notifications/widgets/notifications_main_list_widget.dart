@@ -1,10 +1,4 @@
-import 'package:ads_project/app/shared/custom_horizontal_sizedbox.dart';
-import 'package:ads_project/app/shared/custom_vertical_sizedbox.dart';
-import 'package:ads_project/app/themes/app_colors.dart';
-import 'package:ads_project/app/themes/app_text_theme.dart';
-import 'package:ads_project/app/utils/app_icons.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:ads_project/app/core/constants/app_packages.dart';
 
 class NotificationsMainListWidget extends StatelessWidget {
   const NotificationsMainListWidget({super.key});
@@ -16,7 +10,7 @@ class NotificationsMainListWidget extends StatelessWidget {
       physics: ScrollPhysics(),
       itemBuilder:
           (BuildContext context, int index) => ListTile(
-            leading: SvgPicture.asset(AppIcons.falseIcon),
+            leading: Image.asset(AppImages.falseImage,width: 44),
             title: Padding(
               padding: const EdgeInsets.only(bottom: 4.0),
               child: Text(

@@ -1,9 +1,4 @@
-import 'package:ads_project/app/modules/root/controllers/root_controller.dart';
-import 'package:ads_project/app/themes/app_colors.dart';
-import 'package:ads_project/app/utils/app_icons.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
+import 'package:ads_project/app/core/constants/app_packages.dart';
 
 class RootScreen extends GetView<RootController> {
   const RootScreen({super.key});
@@ -60,15 +55,8 @@ class RootScreen extends GetView<RootController> {
                           ),
                           InkWell(
                             onTap: () => controller.seletedPage(1),
-                            child: SvgPicture.asset(
-                              AppIcons.scanIcon,
-                              colorFilter:
-                                  controller.currentIndex == 1
-                                      ? ColorFilter.mode(
-                                        AppColors.yellowColor,
-                                        BlendMode.srcIn,
-                                      )
-                                      : null,
+                            child: Image.asset(
+                            AppImages.scanImage
                             ),
                           ),
                           InkWell(

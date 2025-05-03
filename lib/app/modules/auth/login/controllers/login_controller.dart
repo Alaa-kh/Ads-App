@@ -1,7 +1,5 @@
-import 'package:ads_project/app/modules/auth/login/widgets/login_tab_widget.dart';
-import 'package:ads_project/app/modules/auth/login/widgets/register_tab_widget.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
+import 'package:ads_project/app/core/constants/app_packages.dart';
 
 abstract class LoginController extends GetxController {}
 
