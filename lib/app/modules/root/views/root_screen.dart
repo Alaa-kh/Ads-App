@@ -56,7 +56,7 @@ class RootScreen extends GetView<RootController> {
                           InkWell(
                             onTap: () => controller.seletedPage(1),
                             child: Image.asset(
-                            AppImages.scanImage
+                            AppIcons.scanIcon
                             ),
                           ),
                           InkWell(

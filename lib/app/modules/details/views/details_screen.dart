@@ -46,7 +46,7 @@ class DetailsScreen extends StatelessWidget {
                       showTextDialog(
                         'Your request will be\n reviewed within 48 hours',
                         'Visit a gas station to apply the\n sticker',
-                        AppImages.trueImage,
+                        AppIcons.trueIcon,
                         false,
                       );
                     },

@@ -8,9 +8,9 @@ class DetailsInfoDriverWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        DetailsDriverWidget(icon: AppImages.personImage, number: '100'),
-        DetailsDriverWidget(icon: AppImages.coinsImage, number: r'100$'),
-        DetailsDriverWidget(icon: AppImages.roundSpeedImage, number: '230 km/h'),
+        DetailsDriverWidget(icon: AppIcons.personIcon, number: '100'),
+        DetailsDriverWidget(icon: AppIcons.coinsIcon, number: r'100$'),
+        DetailsDriverWidget(icon: AppIcons.roundSpeedIcon, number: '230 km/h'),
       ],
     );
   }

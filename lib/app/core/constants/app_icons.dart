@@ -13,6 +13,7 @@ class AppIcons {
   static const String ageIcon = 'assets/svg/age.svg';
   static const String lineIcon = 'assets/svg/Line 1.svg';
   static const String messageIcon = 'assets/svg/message.svg';
+  static const String googleIcon = 'assets/icons/google.png';
 
   // Home
   static const String notificationIcon = 'assets/svg/Notification.svg';
@@ -29,4 +30,13 @@ class AppIcons {
   // Notifications
   static const String notificationEllipseIcon = 'assets/svg/notificationEllipse.svg';
 
+  // Details
+  static const String personIcon = 'assets/icons/person.png';
+  static const String coinsIcon = 'assets/icons/coins.png';
+  static const String roundSpeedIcon = 'assets/icons/ic_round-speed 1.png';
+
+  static const String scanIcon = 'assets/icons/scan.png';
+  static const String trueIcon = 'assets/icons/true.png';
+  static const String falseIcon = 'assets/icons/false.png';
+ 
 }

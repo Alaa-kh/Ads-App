@@ -99,7 +99,7 @@ class LoginTabWidget extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset(AppImages.googleImage, width: 20, height: 20),
+                  Image.asset(AppIcons.googleIcon, width: 20, height: 20),
                   const SizedBox(width: 10),
                   Text(
                     'Google',

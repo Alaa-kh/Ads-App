@@ -14,21 +14,23 @@ class OnBoardingScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Align(
-                 alignment: Alignment.centerLeft,
-                child: Image.asset(AppImages.carImage)),
+                alignment: Alignment.centerLeft,
+                child: Image.asset(AppImages.carImage),
+              ),
               CustomVerticalSizedBox(height: 15),
               Text(
                 'Start your business from your car',
                 style: AppTextTheme.textTheme.bodyLarge!.copyWith(
                   fontSize: 38,
-                  color: AppColors.whiteColor),
-                  textAlign: TextAlign.center
+                  color: AppColors.whiteColor,
+                ),
+                textAlign: TextAlign.center,
               ),
               Align(
                 alignment: Alignment.bottomRight,
                 child: InkWell(
                   onTap: () => Get.to(() => LoginScreen()),
-                  child: SvgPicture.asset(AppIcons.arrowOnBoardingIcon)
+                  child: SvgPicture.asset(AppIcons.arrowOnBoardingIcon),
                 ),
               ),
             ],

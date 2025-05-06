@@ -10,7 +10,7 @@ class NotificationsMainListWidget extends StatelessWidget {
       physics: ScrollPhysics(),
       itemBuilder:
           (BuildContext context, int index) => ListTile(
-            leading: Image.asset(AppImages.falseImage,width: 44),
+            leading: Image.asset(AppIcons.falseIcon,width: 44),
             title: Padding(
               padding: const EdgeInsets.only(bottom: 4.0),
               child: Text(
