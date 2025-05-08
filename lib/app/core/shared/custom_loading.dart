@@ -17,7 +17,7 @@ class MainCircularProgressWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: CircularProgressIndicator(
-        color: color ?? const Color(0xffF2B80C),
+        color: color ??  AppColors.secondaryColor,
         backgroundColor: const Color(0xff454545),
       ),
     );

@@ -3,7 +3,7 @@ class AppIcons {
   // On Boarding
   static const String arrowOnBoardingIcon = 'assets/svg/arrowOnBoarding.svg';
 
-  // Login 
+  // Auth 
   static const String ellipse1Icon = 'assets/svg/Ellipse 1.svg';
   static const String ellipse2Icon = 'assets/svg/Ellipse 2.svg';
   static const String arrowIcon = 'assets/svg/Icon.svg';
@@ -14,6 +14,18 @@ class AppIcons {
   static const String lineIcon = 'assets/svg/Line 1.svg';
   static const String messageIcon = 'assets/svg/message.svg';
   static const String googleIcon = 'assets/icons/google.png';
+  static const String eyeIcon = 'assets/svg/eye.svg';
+  static const String eyeVisibilityIcon = 'assets/svg/eye_visibility.svg';
+  static const String genderIcon = 'assets/icons/Gender.png';
+  static const String statusIcon = 'assets/icons/status.png';
+  static const String placeIcon = 'assets/icons/place.png';
+  static const String carNumberIcon = 'assets/icons/car_number.png';
+  static const String emailIcon = 'assets/icons/email.png';
+  static const String uploadIcon = 'assets/icons/upload.png';
+  static const String fileIcon = 'assets/icons/file.png';
+  static const String carColorIcon = 'assets/icons/car_color.png';
+  static const String carNameIcon = 'assets/icons/car_name.png';
+  static const String nationalityIcon = 'assets/icons/nationality.png';
 
   // Home
   static const String notificationIcon = 'assets/svg/Notification.svg';

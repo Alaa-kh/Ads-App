@@ -11,7 +11,7 @@ class LoginScreen extends StatelessWidget {
       body: Column(
         children: [
           LoginMainSectionWidget(),
-          const CustomVerticalSizedBox(height: 30),
+          const CustomVerticalSizedBox(height: 50),
           LoginOrRegisterWidget(),
         ],
       ),
