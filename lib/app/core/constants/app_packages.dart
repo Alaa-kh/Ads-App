@@ -44,3 +44,7 @@ export 'package:ads_project/app/modules/details/widgets/details_text_info_widget
 export 'package:ads_project/app/modules/details/widgets/details_main_image_widget.dart';
 export 'package:ads_project/app/modules/details/widgets/details_info_driver_widget.dart';
 export 'package:ads_project/app/modules/on_boarding/views/on_boarding_screen.dart';
+export 'package:ads_project/app/core/validators/forms_validators.dart';
+export 'package:ads_project/app/data/services/app_services.dart';
+export 'package:ads_project/app/modules/auth/login/controllers/register_controller.dart';
+export 'package:ads_project/app/modules/auth/login/widgets/register_dropdown_widget.dart';

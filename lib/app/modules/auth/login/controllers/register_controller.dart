@@ -26,17 +26,15 @@ class RegisterControllerImpl extends RegisterController {
   final TextEditingController carColorController = TextEditingController();
   final TextEditingController carNameController = TextEditingController();
   final TextEditingController nationalityController = TextEditingController();
-  TextEditingController workStatusController = TextEditingController();
+  final TextEditingController workStatusController = TextEditingController();
 
   final RegisterRepositoryImpl registerRepository = RegisterRepositoryImpl();
 
-  // ✅ تعيين الملف من الواجهة
   void setPdfFile(PlatformFile file) {
     pickedPdfFile = file;
-    update(); // إعادة بناء الواجهة
+    update();
   }
 
-  // ✅ إظهار/إخفاء كلمة المرور
   bool isPasswordVisible = false;
   void togglePasswordVisibility() {
     isPasswordVisible = !isPasswordVisible;
@@ -45,69 +43,75 @@ class RegisterControllerImpl extends RegisterController {
 
   @override
   Future<void> registerUser() async {
-    
-      if (!formKey.currentState!.validate()) return;
+    if (!formKey.currentState!.validate()) return;
 
-      // ✅ تحقق من وجود ملف PDF
-      if (pickedPdfFile == null) {
-        Get.snackbar(
-          'PDF Required',
-          'Please upload your driving license (PDF)',
-          backgroundColor: Colors.orange,
-          snackPosition: SnackPosition.BOTTOM,
-        );
-        return;
-      }
-
-      Get.closeAllSnackbars();
-      showLoadingDialog();
-
-      // ✅ رفع البيانات مع الملف
-      final register = await registerRepository.registerUser(
-        name: nameController.text.trim(),
-        email: emailController.text.trim(),
-        number: numberController.text.trim(),
-        password: passwordController.text.trim(),
-        age: ageController.text.trim(),
-        gender: genderController.text.trim(),
-        place: placeController.text.trim(),
-        carNumber: carNumberController.text.trim(),
-        carColor: carColorController.text.trim(),
-        carName: carNameController.text.trim(),
-        carYear: carYearController.text.trim(),
-        nationality: nationalityController.text.trim(),
-        workStatus: workStatusController.text.trim(),
-
-        // ✅ أضف الملف هنا إذا كانت الدالة تدعمه
-        pdfFile: pickedPdfFile!.path!, // تأكد أن الدالة تدعم هذا البراميتر
+    if (pickedPdfFile == null) {
+      Get.snackbar(
+        'PDF Required',
+        'Please upload your driving license (PDF)',
+        backgroundColor: Colors.red,
+        snackPosition: SnackPosition.BOTTOM,
       );
+      return;
+    }
 
-      if (register is RegisterModel) {
-        Get.off(() => const RootScreen());
-      } else {
-        Get.back();
-        Get.snackbar(
-          'Error!',
-          '$register',
-          backgroundColor: Colors.red,
-          snackPosition: SnackPosition.BOTTOM,
-        );
-      }
-   
+    if (nationalityController.text.isEmpty ||
+        placeController.text.isEmpty ||
+        genderController.text.isEmpty ||
+        workStatusController.text.isEmpty) {
+      Get.snackbar(
+        'Warning!',
+        "You didn't choose from the list, Please fill in all fields",
+        backgroundColor: Colors.red,
+        snackPosition: SnackPosition.BOTTOM,
+      );
+      return;
+    }
+
+    Get.closeAllSnackbars();
+    showLoadingDialog();
+
+    final register = await registerRepository.registerUser(
+      name: nameController.text.trim(),
+      email: emailController.text.trim(),
+      number: numberController.text.trim(),
+      password: passwordController.text.trim(),
+      age: ageController.text.trim(),
+      gender: genderController.text.trim(),
+      place: placeController.text.trim(),
+      carNumber: carNumberController.text.trim(),
+      carColor: carColorController.text.trim(),
+      carName: carNameController.text.trim(),
+      carYear: carYearController.text.trim(),
+      nationality: nationalityController.text.trim(),
+      workStatus: workStatusController.text.trim(),
+
+      pdfFile: pickedPdfFile!.path!,
+    );
+
+    if (register is RegisterModel) {
+      Get.off(() => const RootScreen());
+    } else {
+      Get.back();
+      Get.snackbar(
+        'Error!',
+        'Invalid data, please try again',
+        backgroundColor: Colors.red,
+        snackPosition: SnackPosition.BOTTOM,
+      );
+    }
   }
+
   Future<void> requestStoragePermission() async {
-    // var status = await Permission.storage.status;
-    // if (!status.isGranted) {
-      await Permission.storage.request();
-    // }
+    await Permission.storage.request();
+    update();
   }
 
-@override
+  @override
   Future<void> pickPdfFile() async {
-    // await requestStoragePermission(); // ✅ اطلب الإذن أولًا
-
     FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
+      withData: true,
       allowedExtensions: ['pdf'],
     );
 
@@ -115,77 +119,13 @@ class RegisterControllerImpl extends RegisterController {
       pickedPdfFile = result.files.first;
       update();
     } else {
-      Get.snackbar('تنبيه', 'لم يتم اختيار أي ملف.');
+      // Get.snackbar('Warning!', 'No file selected.');
     }
+    update();
   }
 
+  void select(String value, TextEditingController textEditingController) {
+    textEditingController.text = value;
+    update();
+  }
 }
-
-// abstract class RegisterController extends GetxController {
-//   Future<void> registerUser();
-// }
-
-// class RegisterControllerImpl extends RegisterController {
-//   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-//   final TextEditingController nameController = TextEditingController();
-//   final TextEditingController emailController = TextEditingController();
-//   final TextEditingController passwordController = TextEditingController();
-//   final TextEditingController genderController = TextEditingController();
-//   final TextEditingController ageController = TextEditingController();
-//   final TextEditingController numberController = TextEditingController();
-//   final TextEditingController placeController = TextEditingController();
-//   final TextEditingController carNumberController = TextEditingController();
-//   final TextEditingController carYearController = TextEditingController();
-//   final TextEditingController carColorController = TextEditingController();
-//   final TextEditingController carNameController = TextEditingController();
-//   final TextEditingController nationalityController = TextEditingController();
-//   TextEditingController workStatusController = TextEditingController();
-//   final RegisterRepositoryImpl registerRepository = RegisterRepositoryImpl();
-
-//   @override
-//   Future<void> registerUser() async {
-//     try {
-//       if (!formKey.currentState!.validate()) return;
-//       Get.closeAllSnackbars();
-
-//       showLoadingDialog();
-
-//       final register = await registerRepository.registerUser(
-//         name: nameController.text.trim(),
-//         email: emailController.text.trim(),
-//         number: numberController.text.trim(),
-//         password: passwordController.text.trim(),
-//         age: ageController.text.trim(),
-//         gender: genderController.text.trim(),
-//         place: placeController.text.trim(),
-//         carNumber: carNumberController.text.trim(),
-//         carColor: carColorController.text.trim(),
-//         carName: carNameController.text.trim(),
-//         carYear: carYearController.text.trim(),
-//         nationality: nationalityController.text.trim(),
-//         workStatus: workStatusController.text.trim()
-//       );
-//       if (register is RegisterModel) {
-//         Get.off(() => const RootScreen());
-//       } else {
-//         Get.back();
-//         Get.snackbar(
-//           'Error!',
-//           '$register',
-//           backgroundColor: Colors.red,
-//           snackPosition: SnackPosition.BOTTOM,
-//         );
-//       }
-//     } catch (e) {
-//       print('================================== $e');
-//     }
-//   }
-
-//   bool isPasswordVisible = false;
-
-//   // Toggles the visibility of the password field.
-//   void togglePasswordVisibility() {
-//     isPasswordVisible = !isPasswordVisible;
-//     update();
-//   }
-// }

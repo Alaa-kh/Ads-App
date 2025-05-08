@@ -35,6 +35,12 @@ class LoginControllerImp extends LoginController
         Get.off(() => const RootScreen());
       } else {
         Get.back();
+        Get.snackbar(
+          'Error!',
+          'The username or password is incorrect, Please try again.',
+          backgroundColor: Colors.red,
+          snackPosition: SnackPosition.BOTTOM,
+        );
       }
     } catch (e) {
       print('================================== $e');

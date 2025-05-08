@@ -35,7 +35,7 @@ class FormsValidate {
 
   //* Validates the 'password' field.
   //* Returns an error message string if validation fails, otherwise returns null.
-  static String? getPasswordValidate(
+static String? getPasswordValidate(
     BuildContext context,
     String password, {
     bool? isFillOldPassword,
@@ -44,8 +44,12 @@ class FormsValidate {
       return 'Required Field';
     }
 
-    if (password.length < 8) {
-      return 'Password Invalid';
+    final passwordPattern = RegExp(
+      r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$',
+    );
+
+    if (!passwordPattern.hasMatch(password)) {
+      return 'Password must be at least 8 characters and include\n uppercase, lowercase, number, and special character';
     }
 
     if (isFillOldPassword != null && isFillOldPassword) {
@@ -54,6 +58,7 @@ class FormsValidate {
 
     return null;
   }
+
 
   //* Validates the 'confirm password' field.
   //* Returns an error message string if validation fails, otherwise returns null.
@@ -115,4 +120,59 @@ class FormsValidate {
 
     return null;
   }
+
+
+
+
+  static String? getCarNameValidate(BuildContext context, String carName) {
+    if (!CheckForms.checkEmpty(carName)) {
+      return 'Required Field';
+    }
+
+    if (carName.length < 3 || carName.length > 50) {
+      return 'Car name must be between 3 and 50 characters';
+    }
+
+    return null;
+  }
+
+
+  static String? getCarColorValidate(BuildContext context, String carColor) {
+    if (!CheckForms.checkEmpty(carColor)) {
+      return 'Required Field';
+    }
+
+    if (carColor.length < 3 || carColor.length > 15) {
+      return 'Car color must be between 3 and 15 characters';
+    }
+
+    return null;
+  }
+
+
+  static String? getCarNumberValidate(BuildContext context, String carNumber) {
+    if (!CheckForms.checkEmpty(carNumber)) {
+      return 'Required Field';
+    }
+
+    if (carNumber.length < 3 || carNumber.length > 50) {
+      return 'Car number must be between 3 and 50 characters';
+    }
+
+    return null;
+  }
+
+
+ static String? getCarYearValidate(BuildContext context, String carYear) {
+    if (!CheckForms.checkEmpty(carYear)) {
+      return 'Required Field';
+    }
+
+    if (!RegExp(r'^\d{4}$').hasMatch(carYear)) {
+      return 'Car year must be exactly 4 digits';
+    }
+
+    return null;
+  }
+
 }

@@ -1,5 +1,4 @@
 import 'package:ads_project/app/core/constants/app_packages.dart';
-import 'package:ads_project/app/core/validators/forms_validators.dart';
 
 class LoginTabWidget extends StatelessWidget {
   const LoginTabWidget({super.key});
@@ -25,6 +24,7 @@ class LoginTabWidget extends StatelessWidget {
                   const CustomVerticalSizedBox(height: 18),
 
                   CustomTextField(
+                    obscureText: !controller.isPasswordVisible,
                     prefixIcon: SvgPicture.asset(AppIcons.passwordIcon),
                     hintText: 'Password',
                     controller: controller.passwordController,

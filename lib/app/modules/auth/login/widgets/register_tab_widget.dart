@@ -1,7 +1,13 @@
 import 'package:ads_project/app/core/constants/app_packages.dart';
-import 'package:ads_project/app/core/validators/forms_validators.dart';
-import 'package:ads_project/app/data/services/app_services.dart';
-import 'package:ads_project/app/modules/auth/login/controllers/register_controller.dart';
+
+final List<String> nationalitiesList = ['Syrian', 'Egyptian'];
+final List<String> genderList = ['Male', 'Female'];
+final List<String> placesList = ['Syria', 'Egypt'];
+final List<String> workStatusList = [
+  'Free driver',
+  'Works within a delivery program',
+  "Doesn't work in any program",
+];
 
 class RegisterTabWidget extends StatelessWidget {
   const RegisterTabWidget({super.key});
@@ -67,28 +73,23 @@ class RegisterTabWidget extends StatelessWidget {
                     ),
                   ),
                   const CustomVerticalSizedBox(height: 18),
-                  CustomTextField(
-                    prefixIcon: Image.asset(
-                      AppIcons.nationalityIcon,
-                      width: 20,
-                    ),
-                    hintText: 'Nationality',
-                    controller: controller.nationalityController,
-                    validator:
-                        (nationality) => FormsValidate.getEmptyValidate(
-                          context,
-                          nationality,
-                        ),
+
+                  RegisterDropdownWidget(
+                    labelText: 'Nationality',
+                    textController: controller.nationalityController,
+                    icon: AppIcons.nationalityIcon,
+                    value: 'nationality',
+                    list: nationalitiesList,
                   ),
 
                   const CustomVerticalSizedBox(height: 18),
-                  CustomTextField(
-                    prefixIcon: Image.asset(AppIcons.genderIcon, width: 20),
-                    hintText: 'Gender',
-                    controller: controller.genderController,
-                    validator:
-                        (gender) =>
-                            FormsValidate.getNameValidate(context, gender),
+
+                  RegisterDropdownWidget(
+                    labelText: 'Gender',
+                    textController: controller.genderController,
+                    icon: AppIcons.genderIcon,
+                    value: 'gender',
+                    list: genderList,
                   ),
                   const CustomVerticalSizedBox(height: 18),
                   CustomTextField(
@@ -111,32 +112,31 @@ class RegisterTabWidget extends StatelessWidget {
                         ),
                   ),
                   const CustomVerticalSizedBox(height: 18),
-                  CustomTextField(
-                    prefixIcon: Image.asset(AppIcons.placeIcon, width: 20),
-                    hintText: 'Place of residence',
-                    controller: controller.placeController,
-                    validator:
-                        (place) =>
-                            FormsValidate.getNameValidate(context, place),
+
+                  RegisterDropdownWidget(
+                    labelText: 'Place of residence',
+                    textController: controller.placeController,
+                    icon: AppIcons.placeIcon,
+                    value: 'place',
+                    list: placesList,
                   ),
                   const CustomVerticalSizedBox(height: 18),
-                  CustomTextField(
-                    prefixIcon: Image.asset(AppIcons.statusIcon, width: 20),
-                    hintText: 'Work Status',
-                    controller: controller.workStatusController,
-                    validator:
-                        (workStatus) =>
-                            FormsValidate.getEmptyValidate(context, workStatus),
+
+                  RegisterDropdownWidget(
+                    labelText: 'Work Status',
+                    textController: controller.workStatusController,
+                    icon: AppIcons.statusIcon,
+                    value: 'workStatus',
+                    list: workStatusList,
                   ),
                   const CustomVerticalSizedBox(height: 18),
                   CustomTextField(
                     prefixIcon: Image.asset(AppIcons.carNumberIcon, width: 20),
                     hintText: 'Car number',
                     controller: controller.carNumberController,
-                    textInputType: TextInputType.number,
                     validator:
                         (carNumber) =>
-                            FormsValidate.getEmptyValidate(context, carNumber),
+                            FormsValidate.getCarNumberValidate(context, carNumber),
                   ),
 
                   const CustomVerticalSizedBox(height: 18),
@@ -147,7 +147,7 @@ class RegisterTabWidget extends StatelessWidget {
                     textInputType: TextInputType.number,
                     validator:
                         (carYear) =>
-                            FormsValidate.getEmptyValidate(context, carYear),
+                            FormsValidate.getCarYearValidate(context, carYear),
                   ),
                   const CustomVerticalSizedBox(height: 18),
                   CustomTextField(
@@ -156,7 +156,7 @@ class RegisterTabWidget extends StatelessWidget {
                     controller: controller.carNameController,
                     validator:
                         (carName) =>
-                            FormsValidate.getEmptyValidate(context, carName),
+                            FormsValidate.getCarNameValidate(context, carName),
                   ),
 
                   const CustomVerticalSizedBox(height: 18),
@@ -166,11 +166,15 @@ class RegisterTabWidget extends StatelessWidget {
                     controller: controller.carColorController,
                     validator:
                         (carColor) =>
-                            FormsValidate.getEmptyValidate(context, carColor),
+                            FormsValidate.getCarColorValidate(context, carColor),
                   ),
                   const CustomVerticalSizedBox(height: 18),
                   InkWell(
-                    onTap: () => controller.pickPdfFile(),
+                    onTap: () {
+                      controller.pickPdfFile();
+                      print(' ====== ${controller.pickedPdfFile?.name}');
+
+                    },
                     child: Container(
                       height: 52,
                       padding: EdgeInsets.symmetric(horizontal: 14),
