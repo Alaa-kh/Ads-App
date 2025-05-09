@@ -16,11 +16,12 @@ class AccountScreen extends StatelessWidget {
         },
         radius: Radius.circular(0),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 13.0),
           child: SvgPicture.asset(AppIcons.notificationBlackIcon),
         ),
         actions: [
           IconButton(
+            padding: const EdgeInsets.symmetric(horizontal: 13.0),
             onPressed:
                 () => Get.find<RootController>()
                     .accountNavigatorKey

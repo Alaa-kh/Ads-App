@@ -36,13 +36,10 @@ AppBar mainAppBar(
               )
               : null,
     ),
-    leading: Padding(
-      padding: const EdgeInsets.only(left: 15.0),
-      child: InkWell(
-        overlayColor: WidgetStateProperty.all(Colors.transparent),
-        onTap: onTap,
-        child: leadingIcon,
-      ),
+    leading: InkWell(
+      overlayColor: WidgetStateProperty.all(Colors.transparent),
+      onTap: onTap,
+      child: leadingIcon,
     ),
     title: Text(
       title ?? '',

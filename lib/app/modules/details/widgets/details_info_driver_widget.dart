@@ -8,9 +8,17 @@ class DetailsInfoDriverWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        DetailsDriverWidget(icon: AppIcons.personIcon, number: '100'),
-        DetailsDriverWidget(icon: AppIcons.coinsIcon, number: r'100$'),
-        DetailsDriverWidget(icon: AppIcons.roundSpeedIcon, number: '230 km/h'),
+        DetailsDriverWidget(icon: AppIcons.personIcon, label: '100'),
+        DetailsDriverWidget(icon: AppIcons.coinsIcon, label: r'100$'),
+        DetailsDriverWidget(icon: AppIcons.roundSpeedIcon, label: '230 km/h'),
+        Padding(
+          padding: EdgeInsets.only(top: 20.0),
+          child: DetailsDriverWidget(
+            icon: AppIcons.gasIcon,
+            label: 'Gas\n stations',
+            backgroundColor: AppColors.primaryColor,
+          ),
+        ),
       ],
     );
   }

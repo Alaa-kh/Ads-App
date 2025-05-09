@@ -4,10 +4,12 @@ class DetailsDriverWidget extends StatelessWidget {
   const DetailsDriverWidget({
     super.key,
     required this.icon,
-    required this.number,
+    required this.label,
+    this.backgroundColor,
   });
   final String icon;
-  final String number;
+  final String label;
+  final Color? backgroundColor;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -18,9 +20,9 @@ class DetailsDriverWidget extends StatelessWidget {
           width: 60,
           height: 64,
           decoration: BoxDecoration(
-            color: AppColors.whiteColor,
+            color: backgroundColor ?? AppColors.whiteColor,
             borderRadius: BorderRadius.circular(10),
-             boxShadow: [
+            boxShadow: [
               BoxShadow(
                 color: AppColors.lightDarkColor.withValues(alpha: .7),
                 blurRadius: 10,
@@ -28,15 +30,16 @@ class DetailsDriverWidget extends StatelessWidget {
               ),
             ],
           ),
-          child: Image.asset(icon,width: 30),
+          child: Image.asset(icon, width: 30),
         ),
         const CustomVerticalSizedBox(height: 7),
         Text(
-          number,
+          label,
           style: AppTextTheme.textTheme.bodyMedium!.copyWith(
             fontWeight: FontWeight.w400,
             color: AppColors.blackColor,
           ),
+          textAlign: TextAlign.center,
         ),
       ],
     );

@@ -1,5 +1,4 @@
 import 'package:ads_project/app/core/constants/app_packages.dart';
-import 'package:ads_project/app/modules/auth/login/controllers/register_controller.dart';
 
 class RegisterDropdownWidget extends StatelessWidget {
   const RegisterDropdownWidget({

@@ -11,7 +11,7 @@ class DetailsScreen extends StatelessWidget {
         onTap: () => Get.back(),
         radius: Radius.circular(0),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 6),
+          padding: const EdgeInsets.symmetric(horizontal: 13),
           child: SvgPicture.asset(AppIcons.arrowBackIcon),
         ),
         backgroundColor: AppColors.lightWhiteColor,
@@ -47,7 +47,7 @@ class DetailsScreen extends StatelessWidget {
                         'Your request will be\n reviewed within 48 hours',
                         'Visit a gas station to apply the\n sticker',
                         AppIcons.trueIcon,
-                        false,
+                        'Please visit the campaigns page to check the application.'
                       );
                     },
                   ),

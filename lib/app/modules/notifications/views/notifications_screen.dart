@@ -13,6 +13,7 @@ class NotificationsScreen extends StatelessWidget {
         titleColor: AppColors.blackColor,
         radius: Radius.circular(0),
         Container(
+          margin: EdgeInsets.only(left: 13),
           alignment: Alignment.center,
           width: 44,
           height: 44,

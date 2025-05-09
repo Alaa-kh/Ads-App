@@ -8,28 +8,21 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       appBar: mainAppBar(
-        backgroundImagePath:  AppIcons.ellipse2Icon,
+        backgroundImagePath: AppIcons.ellipse2Icon,
         onTap: () {
           return Get.find<RootController>().homeNavigatorKey.currentState!.push(
             MaterialPageRoute(builder: (_) => NotificationsScreen()),
           );
         },
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: SvgPicture.asset(AppIcons.notificationIcon),
+          padding: const EdgeInsets.all(10.0),
+          child: Image.asset(AppIcons.notificationIcon),
         ),
         title: 'Home Page',
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Container(
-              width: 44,
-              height: 44,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: AppColors.whiteColor,
-              ),
-            ),
+            icon: Image.asset(AppIcons.locationIcon, width: 44),
           ),
         ],
       ),

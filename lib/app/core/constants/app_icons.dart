@@ -28,12 +28,13 @@ class AppIcons {
   static const String nationalityIcon = 'assets/icons/nationality.png';
 
   // Home
-  static const String notificationIcon = 'assets/svg/Notification.svg';
+  static const String notificationIcon = 'assets/icons/Notification.png';
   static const String arrowBackIcon = 'assets/svg/arrow.svg';
   static const String arrowNextIcon = 'assets/svg/arrowNext.svg';
   static const String homeIcon = 'assets/svg/home.svg';
   static const String accountIcon = 'assets/svg/account.svg';
   static const String rectangleIcon = 'assets/svg/Rectangle.svg';
+  static const String locationIcon = 'assets/icons/location.png';
 
   //  Account
   static const String notificationBlackIcon = 'assets/svg/NotificationBlack.svg';
@@ -46,9 +47,13 @@ class AppIcons {
   static const String personIcon = 'assets/icons/person.png';
   static const String coinsIcon = 'assets/icons/coins.png';
   static const String roundSpeedIcon = 'assets/icons/ic_round-speed 1.png';
+  static const String gasIcon = 'assets/icons/gas.png';
 
   static const String scanIcon = 'assets/icons/scan.png';
   static const String trueIcon = 'assets/icons/true.png';
   static const String falseIcon = 'assets/icons/false.png';
- 
+
+  static const String centerIcon = 'assets/icons/Group 41.png';
+  static const String listIcon = 'assets/icons/list.png';
+
 }

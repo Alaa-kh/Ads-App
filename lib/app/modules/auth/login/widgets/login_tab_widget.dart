@@ -1,4 +1,5 @@
 import 'package:ads_project/app/core/constants/app_packages.dart';
+import 'package:ads_project/app/modules/auth/forgot_password/views/forgot_password_screen.dart';
 
 class LoginTabWidget extends StatelessWidget {
   const LoginTabWidget({super.key});
@@ -86,7 +87,9 @@ class LoginTabWidget extends StatelessWidget {
                         ),
                         const Spacer(),
                         InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Get.to(() => ForgotPasswordScreen());
+                          },
                           child: Text(
                             'Forget Password?',
                             style: AppTextTheme.textTheme.labelLarge!.copyWith(
