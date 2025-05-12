@@ -1,5 +1,6 @@
 import 'package:ads_project/app/core/constants/app_packages.dart';
 
+
 class NotificationsMainListWidget extends StatelessWidget {
   const NotificationsMainListWidget({super.key});
 
@@ -10,7 +11,7 @@ class NotificationsMainListWidget extends StatelessWidget {
       physics: ScrollPhysics(),
       itemBuilder:
           (BuildContext context, int index) => ListTile(
-            leading: Image.asset(AppIcons.falseIcon,width: 44),
+            leading: Image.asset(AppIcons.falseIcon, width: 44),
             title: Padding(
               padding: const EdgeInsets.only(bottom: 4.0),
               child: Text(
@@ -39,6 +40,7 @@ class NotificationsMainListWidget extends StatelessWidget {
           (BuildContext context, int index) =>
               CustomVerticalSizedBox(height: 3),
       itemCount: 7,
+    
     );
   }
 }

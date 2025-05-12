@@ -1,4 +1,5 @@
 import 'package:ads_project/app/core/constants/app_packages.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
@@ -25,6 +26,9 @@ class OnBoardingScreen extends StatelessWidget {
                   color: AppColors.whiteColor,
                 ),
                 textAlign: TextAlign.center,
+              ).animate().slideX(
+                delay: Duration(seconds: 2),
+                duration: Duration(milliseconds: 300),
               ),
               Align(
                 alignment: Alignment.bottomRight,
@@ -32,6 +36,9 @@ class OnBoardingScreen extends StatelessWidget {
                   onTap: () => Get.to(() => LoginScreen()),
                   child: SvgPicture.asset(AppIcons.arrowOnBoardingIcon),
                 ),
+              ).animate().scaleY(
+                delay: Duration(seconds: 4),
+                duration: Duration(milliseconds: 600),
               ),
             ],
           ),

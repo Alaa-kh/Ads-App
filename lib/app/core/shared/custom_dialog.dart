@@ -1,9 +1,10 @@
 import 'package:ads_project/app/core/constants/app_packages.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 void showTextDialog(
   String title,
   String subTitle,
-  String icon,
+  Widget icon,
   String? text, [
   Function()? onTap,
 ]) {
@@ -19,9 +20,11 @@ void showTextDialog(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Image.asset(icon, width: 44, height: 44),
+            icon.animate().shimmer(
+              duration: Duration(microseconds: 1200),
+              delay: Duration(microseconds: 1100),
+            ),
             const CustomVerticalSizedBox(height: 10),
-
             Text(
               title,
               textAlign: TextAlign.center,
@@ -64,7 +67,7 @@ void showTextDialog(
                     color: AppColors.secondaryColor,
                     shape: BoxShape.circle,
                   ),
-                  child: Icon(Icons.arrow_forward,color: AppColors.whiteColor),
+                  child: Icon(Icons.arrow_forward, color: AppColors.whiteColor),
                 ),
               ],
             ),

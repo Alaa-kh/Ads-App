@@ -2,6 +2,7 @@ import 'package:ads_project/app/core/constants/app_packages.dart';
 import 'package:ads_project/app/core/shared/custom_loading.dart';
 import 'package:ads_project/app/data/models/auth/register_model.dart';
 import 'package:ads_project/app/data/repo/auth/register_repo.dart';
+import 'package:ads_project/app/modules/auth/verify_email/views/verify_email_screen.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -70,7 +71,7 @@ class RegisterControllerImpl extends RegisterController {
 
     Get.closeAllSnackbars();
     showLoadingDialog();
-
+    Get.back();
     final register = await registerRepository.registerUser(
       name: nameController.text.trim(),
       email: emailController.text.trim(),
@@ -90,7 +91,8 @@ class RegisterControllerImpl extends RegisterController {
     );
 
     if (register is RegisterModel) {
-      Get.off(() => const RootScreen());
+      print('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');
+      Get.off(() => const VerifyEmailScreen());
     } else {
       Get.back();
       Get.snackbar(

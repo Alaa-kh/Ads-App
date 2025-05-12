@@ -1,5 +1,6 @@
 
 import 'package:ads_project/app/core/constants/app_packages.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class AccountInfoWidget extends StatelessWidget {
   const AccountInfoWidget({super.key});
@@ -65,6 +66,9 @@ class AccountInfoWidget extends StatelessWidget {
           ),
         ],
       ),
+    ).animate().slideX(
+      duration: Duration(microseconds: 1000),
+      delay: Duration(microseconds: 1000),
     );
   }
 }

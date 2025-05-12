@@ -1,4 +1,6 @@
+import 'package:ads_project/app/core/constants/app_animations.dart';
 import 'package:ads_project/app/core/constants/app_packages.dart';
+import 'package:lottie/lottie.dart';
 
 class DetailsScreen extends StatelessWidget {
   const DetailsScreen({super.key});
@@ -41,13 +43,20 @@ class DetailsScreen extends StatelessWidget {
                   const CustomVerticalSizedBox(height: 20),
                   CustomButtonWidget(
                     text: 'Order Now',
+
                     fontSize: 28,
                     onTap: () {
                       showTextDialog(
                         'Your request will be\n reviewed within 48 hours',
                         'Visit a gas station to apply the\n sticker',
-                        AppIcons.trueIcon,
-                        'Please visit the campaigns page to check the application.'
+                        Lottie.asset(
+                          AppAnimations.checkAnimate,
+                          width: 80,
+                          height: 80,
+                          reverse: false,
+                          repeat: false,animate: true
+                        ),
+                        'Please visit the campaigns page to check the application.',
                       );
                     },
                   ),

@@ -60,7 +60,7 @@ class LoginOrRegisterWidget extends StatelessWidget {
                   ),
                   const CustomVerticalSizedBox(height: 25),
                   AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 700),
+                    duration: const Duration(milliseconds: 200),
                     transitionBuilder: (child, animation) {
                       return FadeTransition(opacity: animation, child: child);
                     },

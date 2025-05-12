@@ -7,14 +7,13 @@ class NotificationsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
-      appBar: mainAppBar(
+     appBar: mainAppBar(
         onTap: () => Navigator.of(context).pop(),
         title: 'Notification',
         titleColor: AppColors.blackColor,
         radius: Radius.circular(0),
-        Container(
+     Container(
           margin: EdgeInsets.only(left: 13),
-          alignment: Alignment.center,
           width: 44,
           height: 44,
           decoration: BoxDecoration(
@@ -22,13 +21,16 @@ class NotificationsScreen extends StatelessWidget {
             color: AppColors.lightGrayColor,
             boxShadow: [
               BoxShadow(
-                color: AppColors.lightDarkColor.withValues(alpha: .7),
+                color: AppColors.lightDarkColor.withValues(alpha: 0.7),
                 blurRadius: 10,
                 spreadRadius: 5,
               ),
             ],
           ),
-          child: Icon(Icons.arrow_back_ios, size: 13),
+          child: Padding(
+            padding: EdgeInsets.only(left: 5),
+            child: Icon(Icons.arrow_back_ios, size: 18),
+          ),
         ),
 
         backgroundColor: AppColors.whiteColor,

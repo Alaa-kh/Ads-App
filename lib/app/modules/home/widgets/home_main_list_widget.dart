@@ -1,8 +1,8 @@
 import 'package:ads_project/app/core/constants/app_packages.dart';
 
 class HomeMainListWidget extends StatelessWidget {
-  const HomeMainListWidget({super.key});
-
+  const HomeMainListWidget({super.key, required this.index});
+  final int index;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,7 +20,7 @@ class HomeMainListWidget extends StatelessWidget {
           ),
         ],
       ),
-      child: HomeMainInfoWidget(),
+      child: HomeMainInfoWidget(index: index,),
     );
   }
 }

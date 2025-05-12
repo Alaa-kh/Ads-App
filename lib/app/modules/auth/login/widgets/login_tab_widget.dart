@@ -1,5 +1,6 @@
 import 'package:ads_project/app/core/constants/app_packages.dart';
 import 'package:ads_project/app/modules/auth/forgot_password/views/forgot_password_screen.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class LoginTabWidget extends StatelessWidget {
   const LoginTabWidget({super.key});
@@ -20,7 +21,10 @@ class LoginTabWidget extends StatelessWidget {
                     hintText: 'Full Name',
                     controller: controller.nameController,
                     validator:
-                        (name) => FormsValidate.getNameValidate(context, name),
+                        (name) => FormsValidate.getEmptyValidate(context, name),
+                  ).animate().slideX(
+                    delay: Duration(microseconds: 1200),
+                    duration: Duration(milliseconds: 500),
                   ),
                   const CustomVerticalSizedBox(height: 18),
 
@@ -30,11 +34,8 @@ class LoginTabWidget extends StatelessWidget {
                     hintText: 'Password',
                     controller: controller.passwordController,
                     validator:
-                        (password) => FormsValidate.getPasswordValidate(
-                          context,
-                          password,
-                          isFillOldPassword: true,
-                        ),
+                        (password) =>
+                            FormsValidate.getEmptyValidate(context, password),
                     suffixIcon: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: InkWell(
@@ -52,6 +53,9 @@ class LoginTabWidget extends StatelessWidget {
                         ),
                       ),
                     ),
+                  ).animate().slideX(
+                    delay: Duration(microseconds: 1000),
+                    duration: Duration(milliseconds: 1000),
                   ),
 
                   Theme(
@@ -88,7 +92,11 @@ class LoginTabWidget extends StatelessWidget {
                         const Spacer(),
                         InkWell(
                           onTap: () {
-                            Get.to(() => ForgotPasswordScreen());
+                            Get.to(
+                              () => ForgotPasswordScreen(),
+                              transition: Transition.cupertinoDialog,
+                              duration: Duration(seconds: 1),
+                            );
                           },
                           child: Text(
                             'Forget Password?',
@@ -102,60 +110,14 @@ class LoginTabWidget extends StatelessWidget {
                     ),
                   ),
 
-                  const CustomVerticalSizedBox(height: 18),
+                  const CustomVerticalSizedBox(height: 40),
                   CustomButtonWidget(
                     text: 'Login',
                     onTap: () {
                       controller.login();
                     },
                   ),
-                  const CustomVerticalSizedBox(height: 35),
 
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(AppIcons.lineIcon),
-                      const CustomHorizontalSizedBox(width: 10),
-                      Text(
-                        'Or login with',
-                        style: AppTextTheme.textTheme.labelLarge!.copyWith(
-                          fontWeight: FontWeight.w600,
-                          color: AppColors.yellowColor,
-                        ),
-                      ),
-                      CustomHorizontalSizedBox(width: 10),
-                      SvgPicture.asset(AppIcons.lineIcon),
-                    ],
-                  ),
-                  CustomVerticalSizedBox(height: 35),
-                  InkWell(
-                    onTap: () {},
-                    child: Container(
-                      alignment: Alignment.center,
-                      height: 56,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(32),
-                        border: Border.all(color: AppColors.lightDarkColor),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            AppIcons.googleIcon,
-                            width: 20,
-                            height: 20,
-                          ),
-                          const SizedBox(width: 10),
-                          Text(
-                            'Google',
-                            style: AppTextTheme.textTheme.bodyMedium!.copyWith(
-                              color: AppColors.darkColor,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
                   const CustomVerticalSizedBox(height: 25),
                 ],
               ),

@@ -1,25 +1,29 @@
+import 'package:ads_project/app/core/constants/app_animations.dart';
 import 'package:ads_project/app/core/constants/app_packages.dart';
+import 'package:lottie/lottie.dart';
 
 void showLoadingDialog() {
   Get.dialog(
-      barrierDismissible: false,
-      const PopScope(
-        canPop: false,
-        child: Center(
-          child: MainCircularProgressWidget(),
-        ),
-      ));
+    barrierDismissible: false,
+    const PopScope(
+      canPop: false,
+      child: Center(child: MainCircularProgressWidget()),
+    ),
+  );
 }
+
 class MainCircularProgressWidget extends StatelessWidget {
   const MainCircularProgressWidget({super.key, this.color});
   final Color? color;
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: CircularProgressIndicator(
-        color: color ??  AppColors.secondaryColor,
-        backgroundColor: const Color(0xff454545),
-      ),
+      child: Lottie.asset(AppAnimations.loadingAnimate,animate: true),
+
+      // CircularProgressIndicator(
+      //   color: color ??  AppColors.secondaryColor,
+      //   backgroundColor: const Color(0xff454545),
+      // ),
     );
   }
 }

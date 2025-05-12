@@ -31,7 +31,7 @@ class LoginControllerImp extends LoginController
         password: passwordController.text.trim(),
       );
       if (login is LoginModel) {
-        print('================================== $login');
+        print('================================== SUCCESS $login');
         Get.off(() => const RootScreen());
       } else {
         Get.back();

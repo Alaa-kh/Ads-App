@@ -32,6 +32,21 @@ class FormsValidate {
 
     return null;
   }
+static String? getConfirmPasswordValidate(
+    BuildContext context,
+    String confirmPassword,
+    String originalPassword,
+  ) {
+    if (!CheckForms.checkEmpty(confirmPassword)) {
+      return 'Required Field';
+    }
+
+    if (confirmPassword != originalPassword) {
+      return 'Passwords do not match';
+    }
+
+    return null;
+  }
 
   //* Validates the 'password' field.
   //* Returns an error message string if validation fails, otherwise returns null.

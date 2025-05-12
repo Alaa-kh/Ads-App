@@ -1,4 +1,5 @@
 import 'package:ads_project/app/core/constants/app_packages.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 final List<String> nationalitiesList = ['Syrian', 'Egyptian'];
 final List<String> genderList = ['Male', 'Female'];
@@ -30,7 +31,8 @@ class RegisterTabWidget extends StatelessWidget {
                     controller: controller.nameController,
                     validator:
                         (name) => FormsValidate.getNameValidate(context, name),
-                  ),
+                  ).animate().slideX(delay: Duration(microseconds: 1000),
+                    duration: Duration(milliseconds: 500) ,),
                   const CustomVerticalSizedBox(height: 18),
 
                   CustomTextField(
@@ -40,6 +42,9 @@ class RegisterTabWidget extends StatelessWidget {
                     validator:
                         (email) =>
                             FormsValidate.getEmailValidate(context, email),
+                  ).animate().slideX(
+                    delay: Duration(microseconds: 1000),
+                    duration: Duration(milliseconds: 700),
                   ),
                   const CustomVerticalSizedBox(height: 18),
 
@@ -71,6 +76,9 @@ class RegisterTabWidget extends StatelessWidget {
                         ),
                       ),
                     ),
+                  ).animate().slideX(
+                    delay: Duration(microseconds: 1000),
+                    duration: Duration(milliseconds: 900),
                   ),
                   const CustomVerticalSizedBox(height: 18),
 
@@ -80,6 +88,9 @@ class RegisterTabWidget extends StatelessWidget {
                     icon: AppIcons.nationalityIcon,
                     value: 'nationality',
                     list: nationalitiesList,
+                  ).animate().slideX(
+                    delay: Duration(microseconds: 1000),
+                    duration: Duration(milliseconds: 1100),
                   ),
 
                   const CustomVerticalSizedBox(height: 18),
@@ -90,6 +101,9 @@ class RegisterTabWidget extends StatelessWidget {
                     icon: AppIcons.genderIcon,
                     value: 'gender',
                     list: genderList,
+                  ).animate().slideX(
+                    delay: Duration(microseconds: 1000),
+                    duration: Duration(milliseconds: 1300),
                   ),
                   const CustomVerticalSizedBox(height: 18),
                   CustomTextField(
@@ -99,6 +113,9 @@ class RegisterTabWidget extends StatelessWidget {
                     controller: controller.ageController,
                     validator:
                         (age) => FormsValidate.getAgeValidate(context, age),
+                  ).animate().slideX(
+                    delay: Duration(microseconds: 1000),
+                    duration: Duration(milliseconds: 1500),
                   ),
                   const CustomVerticalSizedBox(height: 18),
                   CustomTextField(
@@ -110,7 +127,9 @@ class RegisterTabWidget extends StatelessWidget {
                           context,
                           phone,
                         ),
-                  ),
+                  ).animate().slideX(
+                    delay: Duration(microseconds: 1000),
+                    duration: Duration(milliseconds: 1700)),
                   const CustomVerticalSizedBox(height: 18),
 
                   RegisterDropdownWidget(
@@ -119,6 +138,9 @@ class RegisterTabWidget extends StatelessWidget {
                     icon: AppIcons.placeIcon,
                     value: 'place',
                     list: placesList,
+                  ).animate().slideX(
+                    delay: Duration(microseconds: 1000),
+                    duration: Duration(milliseconds: 1900),
                   ),
                   const CustomVerticalSizedBox(height: 18),
 
@@ -128,6 +150,9 @@ class RegisterTabWidget extends StatelessWidget {
                     icon: AppIcons.statusIcon,
                     value: 'workStatus',
                     list: workStatusList,
+                  ).animate().slideX(
+                    delay: Duration(microseconds: 1000),
+                    duration: Duration(milliseconds: 2100),
                   ),
                   const CustomVerticalSizedBox(height: 18),
                   CustomTextField(
@@ -137,6 +162,9 @@ class RegisterTabWidget extends StatelessWidget {
                     validator:
                         (carNumber) =>
                             FormsValidate.getCarNumberValidate(context, carNumber),
+                  ).animate().slideX(
+                    delay: Duration(microseconds: 1000),
+                    duration: Duration(milliseconds: 2300),
                   ),
 
                   const CustomVerticalSizedBox(height: 18),
@@ -148,6 +176,9 @@ class RegisterTabWidget extends StatelessWidget {
                     validator:
                         (carYear) =>
                             FormsValidate.getCarYearValidate(context, carYear),
+                  ).animate().slideX(
+                    delay: Duration(microseconds: 1000),
+                    duration: Duration(milliseconds: 2500),
                   ),
                   const CustomVerticalSizedBox(height: 18),
                   CustomTextField(
@@ -157,6 +188,9 @@ class RegisterTabWidget extends StatelessWidget {
                     validator:
                         (carName) =>
                             FormsValidate.getCarNameValidate(context, carName),
+                  ).animate().slideX(
+                    delay: Duration(microseconds: 1000),
+                    duration: Duration(milliseconds: 2700),
                   ),
 
                   const CustomVerticalSizedBox(height: 18),
@@ -167,6 +201,9 @@ class RegisterTabWidget extends StatelessWidget {
                     validator:
                         (carColor) =>
                             FormsValidate.getCarColorValidate(context, carColor),
+                  ).animate().slideX(
+                    delay: Duration(microseconds: 1000),
+                    duration: Duration(milliseconds: 2900),
                   ),
                   const CustomVerticalSizedBox(height: 18),
                   InkWell(
@@ -200,6 +237,9 @@ class RegisterTabWidget extends StatelessWidget {
                         ],
                       ),
                     ),
+                  ).animate().slideX(
+                    delay: Duration(microseconds: 1000),
+                    duration: Duration(milliseconds: 3100),
                   ),
 
                   const CustomVerticalSizedBox(height: 18),

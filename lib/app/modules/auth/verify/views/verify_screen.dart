@@ -1,35 +1,60 @@
 import 'package:ads_project/app/core/constants/app_packages.dart';
+import 'package:ads_project/app/modules/auth/reset_password/views/reset_password_screen.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:pinput/pinput.dart';
 
-class VerifyScreen extends StatelessWidget {
+String code = '';
+
+class VerifyScreen extends StatefulWidget {
   const VerifyScreen({super.key});
 
   @override
+  State<VerifyScreen> createState() => _VerifyScreenState();
+}
+
+class _VerifyScreenState extends State<VerifyScreen> {
+  @override
   Widget build(BuildContext context) {
+    void empty(String text) {
+      if (text.isEmpty || text.length < 6) {
+        Get.snackbar(
+          'Error!',
+          'Is Empty!',
+          backgroundColor: Colors.red,
+          snackPosition: SnackPosition.BOTTOM,
+        );
+      } else {
+        Get.to(() => ResetPasswordScreen(), arguments: {'code': code});
+      }
+    }
+
+    // final controller = Get.put(VerifyControllerImp());
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
 
       appBar: mainAppBar(
+        onTap: () => Get.back(),
         radius: Radius.circular(0),
         backgroundColor: AppColors.whiteColor,
-        Container(
+          Container(
           margin: EdgeInsets.only(left: 13),
-
-          alignment: Alignment.center,
           width: 44,
           height: 44,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: AppColors.whiteColor,
+            color: AppColors.lightGrayColor,
             boxShadow: [
               BoxShadow(
-                color: AppColors.lightDarkColor.withValues(alpha: .7),
+                color: AppColors.lightDarkColor.withValues(alpha: 0.7),
                 blurRadius: 10,
                 spreadRadius: 5,
               ),
             ],
           ),
-          child: Icon(Icons.arrow_back_ios, size: 13),
+          child: Padding(
+            padding: EdgeInsets.only(left: 5),
+            child: Icon(Icons.arrow_back_ios, size: 18),
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -47,7 +72,7 @@ class VerifyScreen extends StatelessWidget {
               ),
               CustomVerticalSizedBox(height: 10),
               Text(
-                'Please check your SMS +947650555 to see the verification code',
+                'Please check your Email  to see the verification code',
                 style: AppTextTheme.textTheme.headlineLarge!.copyWith(
                   fontWeight: FontWeight.w400,
                   color: AppColors.slateGrayColor,
@@ -66,28 +91,57 @@ class VerifyScreen extends StatelessWidget {
                 ),
               ),
               CustomVerticalSizedBox(height: 15),
-              Pinput(
-                keyboardType: TextInputType.number,
-                separatorBuilder: (index) => CustomHorizontalSizedBox(width: 20),
-                length: 6,
-                onCompleted: (pin) {},
-                useNativeKeyboard: true,
-                showCursor: true,
-                defaultPinTheme: PinTheme(
-                  width: 55,
-                  height: 60,
-                  textStyle: AppTextTheme.textTheme.titleLarge!.copyWith(
-                    fontSize: 19,
-                    color: AppColors.darkModeColor,
+              AutofillGroup(
+                child: Pinput(
+                  isCursorAnimationEnabled: true,
+                  autofillHints: const [AutofillHints.oneTimeCode],
+                  keyboardType: TextInputType.number,
+                  separatorBuilder:
+                      (index) => CustomHorizontalSizedBox(width: 20),
+                  length: 6,
+                  onCompleted: (pin) {
+                    setState(() {
+                      code = pin;
+                      empty(pin);
+                    });
+                  },
+                  useNativeKeyboard: true,
+                  showCursor: true,
+                  defaultPinTheme: PinTheme(
+                    width: 55,
+                    height: 60,
+                    textStyle: AppTextTheme.textTheme.titleLarge!.copyWith(
+                      fontSize: 19,
+                      color: AppColors.darkModeColor,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: AppColors.lightGrayColor,
+                    ),
                   ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: AppColors.lightGrayColor,
-                  ),
+                ).animate().flipV(
+                  delay: Duration(microseconds: 700),
+                  duration: Duration(milliseconds: 800),
                 ),
               ),
               CustomVerticalSizedBox(height: 50),
-              CustomButtonWidget(text: 'Verify'),
+              CustomButtonWidget(
+                text: 'Verify',
+                onTap: () {
+                  empty(code);
+                },
+              ),
+              CustomVerticalSizedBox(height: 10),
+              InkWell(
+                child: Text(
+                  'Resend code to',
+                  style: AppTextTheme.textTheme.headlineLarge!.copyWith(
+                    fontWeight: FontWeight.w400,
+                    color: AppColors.slateGrayColor,
+                    fontSize: 14,
+                  ),
+                ),
+              ),
             ],
           ),
         ),
