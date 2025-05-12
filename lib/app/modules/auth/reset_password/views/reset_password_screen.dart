@@ -18,7 +18,7 @@ class ResetPasswordScreen extends StatelessWidget {
         onTap: () => Get.back(),
         radius: Radius.circular(0),
         backgroundColor: AppColors.whiteColor,
-       Container(
+        Container(
           margin: EdgeInsets.only(left: 13),
           width: 44,
           height: 44,
@@ -49,10 +49,16 @@ class ResetPasswordScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     CustomVerticalSizedBox(height: 50),
+                    Text(
+                      'New password',
+                      style: AppTextTheme.textTheme.displayMedium!.copyWith(
+                        color: AppColors.darkModeColor,
+                      ),
+                    ),
                     CustomTextField(
                       obscureText: !controller.isPasswordVisible,
                       prefixIcon: SvgPicture.asset(AppIcons.passwordIcon),
-                      hintText: 'Enter New Password',
+                      hintText: 'New Password',
                       controller: controller.passwordController,
                       validator:
                           (password) => FormsValidate.getPasswordValidate(

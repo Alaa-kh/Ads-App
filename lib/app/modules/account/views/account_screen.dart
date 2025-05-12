@@ -1,4 +1,5 @@
 import 'package:ads_project/app/core/constants/app_packages.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({super.key});
@@ -48,7 +49,10 @@ class AccountScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomVerticalSizedBox(height: 10),
-              AccountPhotoWidget(),
+              AccountPhotoWidget().animate().rotate(
+                delay: Duration(microseconds: 900),
+                duration: Duration(milliseconds: 1100),
+              ),
               const CustomVerticalSizedBox(height: 10),
               Text(
                 'Hussam Zina',

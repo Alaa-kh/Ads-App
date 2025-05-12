@@ -121,6 +121,7 @@ class RegisterTabWidget extends StatelessWidget {
                   CustomTextField(
                     prefixIcon: SvgPicture.asset(AppIcons.phoneIcon),
                     hintText: 'Phone No.',
+                    textInputType: TextInputType.number,
                     controller: controller.numberController,
                     validator:
                         (phone) => FormsValidate.getPhoneNumberValidate(

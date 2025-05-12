@@ -8,8 +8,9 @@ class AdsApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.root,
-      getPages: AppPages.pages,
+      // initialRoute: AppRoutes.root,
+      // getPages: AppPages.pages,
+      home: RootScreen(),
       theme: ThemeData(fontFamily: 'Inter'),
     );
   }

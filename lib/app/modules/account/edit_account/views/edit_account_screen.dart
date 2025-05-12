@@ -1,4 +1,5 @@
 import 'package:ads_project/app/core/constants/app_packages.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class EditAccountScreen extends StatelessWidget {
   const EditAccountScreen({super.key});
@@ -47,6 +48,9 @@ class EditAccountScreen extends StatelessWidget {
                 hintText: 'Full Name',
                 validator:
                     (name) => FormsValidate.getNameValidate(context, name),
+              ).animate().slideX(
+                delay: Duration(microseconds: 1000),
+                duration: Duration(milliseconds: 500),
               ),
               const CustomVerticalSizedBox(height: 18),
               CustomTextField(
@@ -54,7 +58,9 @@ class EditAccountScreen extends StatelessWidget {
                 hintText: 'Email',
                 validator:
                     (email) => FormsValidate.getEmailValidate(context, email),
-              ),
+              ).animate().slideX(
+                    delay: Duration(microseconds: 1000),
+                    duration: Duration(milliseconds: 700)),
               const CustomVerticalSizedBox(height: 18),
 
               CustomTextField(
@@ -80,6 +86,9 @@ class EditAccountScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+              ).animate().slideX(
+                delay: Duration(microseconds: 1000),
+                duration: Duration(milliseconds: 900),
               ),
             
               const CustomVerticalSizedBox(height: 18),
@@ -88,6 +97,9 @@ class EditAccountScreen extends StatelessWidget {
                 hintText: 'Your age',
                 textInputType: TextInputType.number,
                 validator: (age) => FormsValidate.getAgeValidate(context, age),
+              ).animate().slideX(
+                delay: Duration(microseconds: 1000),
+                duration: Duration(milliseconds: 1300),
               ),
               const CustomVerticalSizedBox(height: 18),
               CustomTextField(
@@ -96,6 +108,9 @@ class EditAccountScreen extends StatelessWidget {
                 validator:
                     (phone) =>
                         FormsValidate.getPhoneNumberValidate(context, phone),
+              ).animate().slideX(
+                delay: Duration(microseconds: 1000),
+                duration: Duration(milliseconds: 1500),
               ),
        
               const CustomVerticalSizedBox(height: 18),
@@ -105,6 +120,9 @@ class EditAccountScreen extends StatelessWidget {
                 validator:
                     (carNumber) =>
                         FormsValidate.getCarNumberValidate(context, carNumber),
+              ).animate().slideX(
+                delay: Duration(microseconds: 1000),
+                duration: Duration(milliseconds: 1700),
               ),
 
               const CustomVerticalSizedBox(height: 18),
@@ -115,6 +133,9 @@ class EditAccountScreen extends StatelessWidget {
                 validator:
                     (carYear) =>
                         FormsValidate.getCarYearValidate(context, carYear),
+              ).animate().slideX(
+                delay: Duration(microseconds: 1000),
+                duration: Duration(milliseconds: 1900),
               ),
               const CustomVerticalSizedBox(height: 18),
               CustomTextField(
@@ -123,6 +144,9 @@ class EditAccountScreen extends StatelessWidget {
                 validator:
                     (carName) =>
                         FormsValidate.getCarNameValidate(context, carName),
+              ).animate().slideX(
+                delay: Duration(microseconds: 1000),
+                duration: Duration(milliseconds: 2100),
               ),
               CustomVerticalSizedBox(height: 30),
               CustomButtonWidget(text: 'Save Changes'),

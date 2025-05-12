@@ -1,5 +1,6 @@
 
 import 'package:ads_project/app/core/constants/app_packages.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class EditAccountPhotoWidget extends StatelessWidget {
   const EditAccountPhotoWidget({super.key});
@@ -32,6 +33,9 @@ class EditAccountPhotoWidget extends StatelessWidget {
           ),
         ),
       ],
+    ).animate().rotate(
+      delay: Duration(microseconds: 700),
+      duration: Duration(milliseconds: 1100),
     );
   }
 }

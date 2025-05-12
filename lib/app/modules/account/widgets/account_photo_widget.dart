@@ -1,5 +1,6 @@
 
 import 'package:ads_project/app/core/constants/app_packages.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class AccountPhotoWidget extends StatelessWidget {
   const AccountPhotoWidget({super.key});
@@ -20,6 +21,9 @@ class AccountPhotoWidget extends StatelessWidget {
           ),
         ],
       ),
+    ).animate().scaleY(
+      delay: Duration(microseconds: 1000),
+      duration: Duration(milliseconds: 2100),
     );
   }
 }
