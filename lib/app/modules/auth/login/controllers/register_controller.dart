@@ -45,7 +45,8 @@ class RegisterControllerImpl extends RegisterController {
   @override
   Future<void> registerUser() async {
     if (!formKey.currentState!.validate()) return;
-
+    showLoadingDialog();
+    Get.back();
     if (pickedPdfFile == null) {
       Get.snackbar(
         'PDF Required',
@@ -55,7 +56,8 @@ class RegisterControllerImpl extends RegisterController {
       );
       return;
     }
-
+      showLoadingDialog();
+      Get.back();
     if (nationalityController.text.isEmpty ||
         placeController.text.isEmpty ||
         genderController.text.isEmpty ||
@@ -92,7 +94,7 @@ class RegisterControllerImpl extends RegisterController {
 
     if (register is RegisterModel) {
       print('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');
-      Get.off(() => const VerifyEmailScreen());
+      Get.to(() => const VerifyEmailScreen());
     } else {
       Get.back();
       Get.snackbar(

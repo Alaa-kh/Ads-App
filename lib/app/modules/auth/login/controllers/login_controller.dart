@@ -1,3 +1,4 @@
+import 'package:ads_project/app/core/constants/app_key.dart';
 import 'package:ads_project/app/core/constants/app_packages.dart';
 import 'package:ads_project/app/core/shared/custom_loading.dart';
 import 'package:ads_project/app/data/models/auth/login_model.dart';
@@ -17,6 +18,7 @@ class LoginControllerImp extends LoginController
   final TextEditingController passwordController = TextEditingController();
 
   final LoginRepositoryImpl loginRepository = LoginRepositoryImpl();
+  final _box = Get.find<MyServices>().getBox;
 
   @override
   Future<void> login() async {
@@ -31,6 +33,7 @@ class LoginControllerImp extends LoginController
         password: passwordController.text.trim(),
       );
       if (login is LoginModel) {
+        _storeUserData(login);
         print('================================== SUCCESS $login');
         Get.off(() => const RootScreen());
       } else {
@@ -61,6 +64,15 @@ class LoginControllerImp extends LoginController
     isPasswordVisible = !isPasswordVisible;
     update();
   }
+ 
+ 
+  
+  void _storeUserData(LoginModel loginModel) {
+    _box.write(AppKey.email, loginModel.data.email);
+    _box.write(AppKey.name, loginModel.data.username);
+
+  }
+
 
   @override
   void onInit() {

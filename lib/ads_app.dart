@@ -11,7 +11,7 @@ class AdsApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // initialRoute: AppRoutes.root,
       // getPages: AppPages.pages,
-      home: VerifyEmailScreen(),
+      home: LoginScreen(),
       theme: ThemeData(fontFamily: 'Inter'),
     );
   }

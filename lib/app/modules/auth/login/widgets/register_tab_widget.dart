@@ -1,13 +1,13 @@
 import 'package:ads_project/app/core/constants/app_packages.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
-final List<String> nationalitiesList = ['Syrian', 'Egyptian'];
-final List<String> genderList = ['Male', 'Female'];
-final List<String> placesList = ['Syria', 'Egypt'];
+final List<String> nationalitiesList = ['مصري', 'سوري'];
+final List<String> genderList = ['انثى', 'ذكر'];
+final List<String> placesList = ['القاهرة', 'دمشق'];
 final List<String> workStatusList = [
-  'Free driver',
-  'Works within a delivery program',
-  "Doesn't work in any program",
+  'سائق حر',
+  'يعمل ضمن برنامج توصيل',
+  "لا يعمل ضمن أي برنامج",
 ];
 
 class RegisterTabWidget extends StatelessWidget {

@@ -1,3 +1,4 @@
+import 'package:ads_project/app/core/constants/app_key.dart';
 import 'package:ads_project/app/core/constants/app_packages.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
@@ -55,7 +56,7 @@ class AccountScreen extends StatelessWidget {
               ),
               const CustomVerticalSizedBox(height: 10),
               Text(
-                'Hussam Zina',
+                Get.find<MyServices>().getBox.read(AppKey.name),
                 style: AppTextTheme.textTheme.displayMedium!.copyWith(
                   color: AppColors.navyBlueColor,
                 ),

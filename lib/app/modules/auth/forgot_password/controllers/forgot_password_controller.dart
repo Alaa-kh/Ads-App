@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:ads_project/app/core/constants/app_packages.dart';
 import 'package:ads_project/app/core/shared/custom_loading.dart';
 import 'package:ads_project/app/data/models/auth/forgot_password_model.dart';
@@ -15,6 +17,33 @@ class ForgotPasswordControllerImp extends ForgotPasswordController {
 
   final ForgotPasswordRepositoryImpl forgotPasswordRepository =
       ForgotPasswordRepositoryImpl();
+
+  // === Timer Variables ===
+  final RxInt _start = 90.obs;
+  final RxBool canResend = false.obs;
+  Timer? _timer;
+
+  String get formattedTime {
+    final minutes = (_start.value ~/ 60).toString().padLeft(2, '0');
+    final seconds = (_start.value % 60).toString().padLeft(2, '0');
+    return '$minutes:$seconds';
+  }
+
+  void startTimer() {
+    _start.value = 90;
+    canResend.value = false;
+
+    _timer?.cancel();
+
+    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      if (_start.value == 0) {
+        timer.cancel();
+        canResend.value = true;
+      } else {
+        _start.value--;
+      }
+    });
+  }
 
   @override
   Future<void> forgotPassword() async {
@@ -42,6 +71,7 @@ class ForgotPasswordControllerImp extends ForgotPasswordController {
             snackPosition: SnackPosition.BOTTOM,
           );
         } else {
+          startTimer(); // ⏱️ Start countdown timer
           Get.dialog(
             AlertDialog(
               shape: RoundedRectangleBorder(
@@ -133,5 +163,11 @@ class ForgotPasswordControllerImp extends ForgotPasswordController {
       );
       print('Exception: $e');
     }
+  }
+
+  @override
+  void onClose() {
+    _timer?.cancel();
+    super.onClose();
   }
 }
