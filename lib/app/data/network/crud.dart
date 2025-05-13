@@ -430,17 +430,15 @@ class Crud {
   }
 
 
-Future<Either<Failures, Map<String, dynamic>>> patch({
+  Future<Either<Failures, Map<String, dynamic>>> patch({
     required final String url,
     required final Map<String, dynamic> body,
     final bool isFormData = false,
     final String? photo,
     final String? keyPhoto,
   }) async {
-    // إعداد الهيدر
     _dio.options.headers['Content-Type'] = 'application/json';
     _dio.options.headers['Accept'] = 'application/json';
-    _dio.options.headers['Transfer-Encoding'] = 'chunked';
 
     if (_box.read(AppKey.token) != null) {
       _dio.options.headers["Authorization"] =
@@ -450,16 +448,6 @@ Future<Either<Failures, Map<String, dynamic>>> patch({
     _dio.options.connectTimeout = const Duration(seconds: 15);
     _dio.options.receiveTimeout = const Duration(seconds: 15);
     _dio.options.responseType = ResponseType.json;
-
-    _dio.interceptors.addAll([
-      LogInterceptor(
-        request: true,
-        requestBody: true,
-        requestHeader: true,
-        responseBody: true,
-        responseHeader: true,
-      ),
-    ]);
 
     try {
       final Response response;
@@ -483,37 +471,17 @@ Future<Either<Failures, Map<String, dynamic>>> patch({
         final Map<String, dynamic>? responseData =
             e.response?.data as Map<String, dynamic>?;
 
-        if (e.response?.statusCode == 422) {
-          final String errorMsg =
-              (responseData?['message'] ??
-                      responseData?['errors'] ??
-                      'An error occurred')
-                  .toString();
-          return left(Failures(errMessage: 'Error: $errorMsg'));
-        }
-        final String errorMsg =
-            (responseData?['message'] ??
-                    responseData?['errors'] ??
-                    'An error occurred')
-                .toString();
+        final String errorMsg = (responseData?['message'] ??
+                responseData?['errors'] ??
+                'An error occurred')
+            .toString();
 
         final dynamic errorData = responseData?['data'];
 
-        if (e.response?.statusCode == 401 || e.response?.statusCode == 404) {
-          _box.remove(AppKey.verify);
-          return left(Failures(errMessage: errorMsg, data: errorData));
-        } else if ([
-          400,
-          422,
-          404,
-          403,
-          325,
-          409,
-        ].contains(e.response?.statusCode)) {
-          return left(Failures(errMessage: errorMsg, data: errorData));
-        }
-
-        return left(FailuresServer.fromDioException(exType: e.type));
+        return left(Failures(
+          errMessage: errorMsg,
+          data: errorData,
+        ));
       }
 
       return left(Failures(errMessage: 'An unknown error occurred'));

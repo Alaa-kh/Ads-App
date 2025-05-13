@@ -45,11 +45,6 @@ class VerifyControllerImp extends VerifyController {
     final result = await verifyRepository.resendCode();
 
     if (result is ResendCodeModel) {
-      print(
-        ''''''
-        '''after'''
-        '''''',
-      );
       resendCodeModel = result;
       print('=================== CUCCESS Resend Code');
     } else {
@@ -60,8 +55,7 @@ class VerifyControllerImp extends VerifyController {
 
   @override
   void onInit() {
-    // TODO: implement onInit
-    super.onInit();
     resendCode();
+    super.onInit();
   }
 }

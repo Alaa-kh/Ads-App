@@ -1,18 +1,19 @@
 import 'package:ads_project/app/core/constants/app_packages.dart';
 import 'package:ads_project/app/core/shared/custom_loading.dart';
-import 'package:ads_project/app/data/models/auth/reset_password_model.dart';
 import 'package:ads_project/app/data/repo/auth/reset_password_repo.dart';
 
 abstract class ResetPasswordController extends GetxController {
   Future<void> resetPassword(String codee);
 }
 
+
 class ResetPasswordControllerImp extends ResetPasswordController {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
-  ResetPasswordRepositoryImpl resetPasswordRepository =
+
+  final ResetPasswordRepositoryImpl resetPasswordRepository =
       ResetPasswordRepositoryImpl();
 
   bool isPasswordVisible = false;
@@ -26,23 +27,32 @@ class ResetPasswordControllerImp extends ResetPasswordController {
     isConfirmPasswordVisible = !isConfirmPasswordVisible;
     update();
   }
-@override
+
+  @override
   Future<void> resetPassword(String codee) async {
-    try {
-      if (!formKey.currentState!.validate()) return;
+    if (!formKey.currentState!.validate()) return;
 
-      showLoadingDialog();
+    showLoadingDialog(); 
 
-      final resetPassword = await resetPasswordRepository.resetPassword(
-        password: passwordController.text.trim(),
-        confirmPassword: confirmPasswordController.text.trim(),
-        code: codee.toString(),
-      );
+    final result = await resetPasswordRepository.resetPassword(
+      password: passwordController.text.trim(),
+      confirmPassword: confirmPasswordController.text.trim(),
+      code: codee,
+    );
 
-      print('RRRRRRRRRRRRRRRRRRRRRR $resetPassword');
-      if (resetPassword is ResetPasswordModel) {
+    result.fold(
+      (failure) {
+        Get.back();
+        Get.snackbar(
+          'Error!',
+          failure.errMessage,
+          backgroundColor: Colors.red,
+          snackPosition: SnackPosition.BOTTOM,
+        );
+      },
+      (resetPassword) {
+        Get.back();
         if (resetPassword.errors != null && resetPassword.errors!.isNotEmpty) {
-          // عرض الخطأ من الـ errors
           Get.snackbar(
             'Error!',
             resetPassword.errors!.first.toString(),
@@ -50,34 +60,16 @@ class ResetPasswordControllerImp extends ResetPasswordController {
             snackPosition: SnackPosition.BOTTOM,
           );
         } else {
-          // إذا لم يكن هناك خطأ، التوجه إلى الشاشة التالية
-          Get.off(() => LoginScreen());
-              Get.snackbar(
+          Get.snackbar(
             'Success!',
-           'Password has been reset successfully',
+            resetPassword.message ?? 'Password reset successfully',
             backgroundColor: Colors.green,
             snackPosition: SnackPosition.BOTTOM,
           );
+          Get.off(() => LoginScreen());
         }
-      } else {
-        // إذا كانت النتيجة ليست من نوع ResetPasswordModel
-        Get.back();
-        Get.snackbar(
-          'Error!',
-          'An unknown error occurred during password reset',
-          backgroundColor: Colors.red,
-          snackPosition: SnackPosition.BOTTOM,
-        );
-      }
-    } catch (e) {
-      print('================================== $e');
-      Get.snackbar(
-        'Error!',
-        'An exception occurred: $e',
-        backgroundColor: Colors.red,
-        snackPosition: SnackPosition.BOTTOM,
-      );
-    }
+      },
+    );
   }
 
 }

@@ -36,6 +36,7 @@ class HomeScreen extends StatelessWidget {
               ? Center(
                 child: Lottie.asset(
                  AppAnimations.noDataAnimate,
+                 width: 200
                 ),
               )
               : SingleChildScrollView(

@@ -54,7 +54,8 @@ class ResetPasswordScreen extends StatelessWidget {
                       style: AppTextTheme.textTheme.displayMedium!.copyWith(
                         color: AppColors.darkModeColor,
                       ),
-                    ),
+                    ),               
+                    CustomVerticalSizedBox(height: 50),
                     CustomTextField(
                       obscureText: !controller.isPasswordVisible,
                       prefixIcon: SvgPicture.asset(AppIcons.passwordIcon),

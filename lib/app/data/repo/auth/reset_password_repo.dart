@@ -2,9 +2,10 @@ import 'package:ads_project/app/core/constants/app_api.dart';
 import 'package:ads_project/app/data/helper/failures_handling.dart';
 import 'package:ads_project/app/data/models/auth/reset_password_model.dart';
 import 'package:ads_project/app/data/network/crud.dart';
+import 'package:dartz/dartz.dart';
 
 abstract class ResetPasswordRepository {
-  Future resetPassword({
+  Future<Either<Failures, ResetPasswordModel>> resetPassword({
     required String password,
     required String confirmPassword,
     required String code,
@@ -13,12 +14,12 @@ abstract class ResetPasswordRepository {
 
 class ResetPasswordRepositoryImpl extends ResetPasswordRepository {
   @override
-  Future resetPassword({
+  Future<Either<Failures, ResetPasswordModel>> resetPassword({
     required String password,
     required String confirmPassword,
     required String code,
   }) async {
-    return _postData(
+    return _postData<ResetPasswordModel>(
       url: AppApi.resetPassword,
       fromJson: (json) => ResetPasswordModel.fromJson(json),
       body: {
@@ -29,19 +30,19 @@ class ResetPasswordRepositoryImpl extends ResetPasswordRepository {
     );
   }
 
-  /// Generic method to post data to the API and handle errors.
-  Future _postData({
+  Future<Either<Failures, T>> _postData<T>({
     required String url,
-    required Function fromJson,
+    required T Function(Map<String, dynamic>) fromJson,
     required Map<String, String> body,
   }) async {
     try {
       final result = await Crud().patch(url: url, body: body);
-      return result.fold((failure) => failure, (data) => fromJson(data));
+      return result.fold(
+        (failure) => left(failure),
+        (data) => right(fromJson(data)),
+      );
     } catch (e) {
-      print('Exception in _patchData:::::::::::::::; $e');
-      return Failures(errMessage: 'An error occurred');
+      return left(Failures(errMessage: 'An exception occurred: $e'));
     }
   }
 }
-
