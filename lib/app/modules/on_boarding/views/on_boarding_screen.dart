@@ -27,8 +27,8 @@ class OnBoardingScreen extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ).animate().slideX(
-                delay: Duration(seconds: 2),
-                duration: Duration(milliseconds: 300),
+                delay: Duration(microseconds: 200),
+                duration: Duration(milliseconds: 800),
               ),
               Align(
                 alignment: Alignment.bottomRight,
@@ -37,7 +37,7 @@ class OnBoardingScreen extends StatelessWidget {
                   child: SvgPicture.asset(AppIcons.arrowOnBoardingIcon),
                 ),
               ).animate().scaleY(
-                delay: Duration(seconds: 4),
+                delay: Duration(microseconds: 4),
                 duration: Duration(milliseconds: 600),
               ),
             ],

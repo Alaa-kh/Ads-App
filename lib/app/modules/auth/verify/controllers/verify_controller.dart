@@ -1,9 +1,11 @@
 import 'package:ads_project/app/core/constants/app_packages.dart';
+import 'package:ads_project/app/data/models/auth/resend_code_model.dart';
 import 'package:ads_project/app/data/models/auth/verify_email_model.dart';
 import 'package:ads_project/app/data/repo/auth/verify_email_repo.dart';
 
 abstract class VerifyController extends GetxController {
   Future<void> verify(String code);
+  Future<void> resendCode();
 }
 
 class VerifyControllerImp extends VerifyController {
@@ -35,5 +37,31 @@ class VerifyControllerImp extends VerifyController {
     } catch (e) {
       print('================================== $e');
     }
+  }
+
+  ResendCodeModel? resendCodeModel;
+  @override
+  Future<void> resendCode() async {
+    final result = await verifyRepository.resendCode();
+
+    if (result is ResendCodeModel) {
+      print(
+        ''''''
+        '''after'''
+        '''''',
+      );
+      resendCodeModel = result;
+      print('=================== CUCCESS Resend Code');
+    } else {
+      await resendCode();
+    }
+    update();
+  }
+
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    super.onInit();
+    resendCode();
   }
 }
