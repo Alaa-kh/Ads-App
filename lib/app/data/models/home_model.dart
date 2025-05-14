@@ -27,34 +27,6 @@ class HomeModel {
 
 class Datum {
     final int id;
-    final String status;
-    final int profits;
-    final Ad ad;
-
-    Datum({
-        required this.id,
-        required this.status,
-        required this.profits,
-        required this.ad,
-    });
-
-    factory Datum.fromJson(Map<String, dynamic> json) => Datum(
-        id: json["id"],
-        status: json["status"],
-        profits: json["profits"],
-        ad: Ad.fromJson(json["ad"]),
-    );
-
-    Map<String, dynamic> toJson() => {
-        "id": id,
-        "status": status,
-        "profits": profits,
-        "ad": ad.toJson(),
-    };
-}
-
-class Ad {
-    final int id;
     final int userId;
     final String name;
     final String description;
@@ -67,7 +39,7 @@ class Ad {
     final List<String> imagesUrl;
     final User user;
 
-    Ad({
+    Datum({
         required this.id,
         required this.userId,
         required this.name,
@@ -82,7 +54,7 @@ class Ad {
         required this.user,
     });
 
-    factory Ad.fromJson(Map<String, dynamic> json) => Ad(
+    factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         id: json["id"],
         userId: json["user_id"],
         name: json["name"],

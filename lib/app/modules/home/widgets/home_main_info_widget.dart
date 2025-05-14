@@ -14,8 +14,8 @@ class HomeMainInfoWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.network(
-              // AppImages.persilImage,
-               controller.homeModel!.data[index].ad.imagesUrl[0] ,
+              AppImages.persilImage,
+              //  controller.homeModel!.data[index].ad.imagesUrl[0] ,
               height: 167,
               alignment: Alignment.center,
             ),
@@ -24,13 +24,13 @@ class HomeMainInfoWidget extends StatelessWidget {
               child: ListTile(
                 onTap: () => Get.to(() => DetailsScreen()),
                 title: Text(
-                controller.homeModel != null?    controller.homeModel!.data[index].ad.from.toString():'',
-                  // 'Dec 20 - Feb 21',
+                // controller.homeModel != null?    controller.homeModel!.data[index].ad.from.toString():'',
+                  'Dec 20 - Feb 21',
                   style: AppTextTheme.textTheme.titleLarge,
                 ),
                 subtitle: Text(
-                controller.homeModel != null?  controller.homeModel!.data[index].ad.driversNumber.toString():'',
-                  // '100 Driver',
+                // controller.homeModel != null?  controller.homeModel!.data[index].ad.driversNumber.toString():'',
+                  '100 Driver',
                   style: AppTextTheme.textTheme.bodyMedium!.copyWith(
                     fontWeight: FontWeight.w400,
                     color: AppColors.yellowColor,

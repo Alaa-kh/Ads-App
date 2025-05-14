@@ -9,6 +9,6 @@ class AppApi {
   static const String resetPassword = '${_baseUrl}auth/reset-password';
   static const String resendCode = '${_baseUrl}resend-code';
 
-  static const String ads = '${_baseUrl}drivers/ads';
+  static const String ads = '${_baseUrl}drivers/available-ads';
 
 }

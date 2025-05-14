@@ -6,7 +6,6 @@ import 'package:ads_project/app/data/repo/auth/register_repo.dart';
 import 'package:ads_project/app/modules/auth/verify_email/views/verify_email_screen.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'dart:html' as html;
 
 abstract class RegisterController extends GetxController {
   Future<void> registerUser();
@@ -123,32 +122,19 @@ class RegisterControllerImpl extends RegisterController {
 
   @override
   Future<void> pickPdfFile() async {
-    html.FileUploadInputElement uploadInput = html.FileUploadInputElement();
-    uploadInput.accept = 'application/pdf';
-    uploadInput.click();
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      withData: true,
+      allowedExtensions: ['pdf'],
+    );
 
-    uploadInput.onChange.listen((e) async {
-      final files = uploadInput.files;
-
-      if (files != null && files.isNotEmpty) {
-        final file = files[0];
-        final platformFile = PlatformFile(
-          name: file.name,
-          size: file.size,
-          path: file.relativePath,
-        );
-
-        pickedPdfFile = platformFile;
-        update();
-      } else {
-        Get.snackbar(
-          'No file selected',
-          'Please select a PDF file',
-          backgroundColor: Colors.red,
-          snackPosition: SnackPosition.BOTTOM,
-        );
-      }
-    });
+    if (result != null && result.files.isNotEmpty) {
+      pickedPdfFile = result.files.first;
+      update();
+    } else {
+      // Get.snackbar('Warning!', 'No file selected.');
+    }
+    update();
   }
 
   void select(String value, TextEditingController textEditingController) {
